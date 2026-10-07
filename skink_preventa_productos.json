@@ -383,7 +383,7 @@
       "Piel Sensible y Calmante"
     ],
     "ficha": "img/fichas/BIODANCE2.png",
-    "video": "img/videos/BIODANCE2.mp4",
+    "video": "img/videos/Biodance2.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -486,7 +486,7 @@
     "mas_vendido": false,
     "preventa": true,
     "ficha": "img/fichas/CELI-01.png",
-    "video": "img/videos/CELI-01.mp4"
+    "video": "img/videos/Celi-01.mp4"
   },
   {
     "id": "CENTELLIAN24-10",
@@ -672,7 +672,7 @@
       "Protección Solar"
     ],
     "ficha": "img/fichas/DR-ALTHEA4.png",
-    "video": "img/videos/DR-ALTHEA4.mp4",
+    "video": "img/videos/Dr-Althea4.mp4",
     "mas_vendido": true,
     "preventa": true
   },
@@ -729,7 +729,7 @@
       "Piel Sensible y Calmante"
     ],
     "ficha": "img/fichas/DR-ALTHEA1.png",
-    "video": "img/videos/DR-ALTHEA1.mp4",
+    "video": "img/videos/Dr-Althea1.mp4",
     "mas_vendido": true,
     "preventa": true
   },
@@ -768,7 +768,7 @@
       "Piel Sensible y Calmante"
     ],
     "ficha": "img/fichas/DR-ALTHEA27.png",
-    "video": "img/videos/DR-ALTHEA27.mp4",
+    "video": "img/videos/Dr-Althea27.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -1079,7 +1079,7 @@
       "Piel Sensible y Calmante"
     ],
     "ficha": "img/fichas/MEDICUBE34.png",
-    "video": "img/videos/MEDICUBE34.mp4",
+    "video": "img/videos/Medicube34.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -1332,7 +1332,7 @@
       "Piel Sensible y Calmante"
     ],
     "ficha": "img/fichas/MEDICUBE9.png",
-    "video": "img/videos/MEDICUBE9.mp4",
+    "video": "img/videos/Medicube9.mp4",
     "mas_vendido": true,
     "preventa": true
   },
@@ -1391,7 +1391,7 @@
       "Piel Grasa y Poros"
     ],
     "ficha": "img/fichas/MEDICUBE97.png",
-    "video": "img/videos/MEDICUBE97.mp4",
+    "video": "img/videos/Medicube97.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -1469,7 +1469,7 @@
       "Piel Sensible y Calmante"
     ],
     "ficha": "img/fichas/MEDICUBE18.png",
-    "video": "img/videos/MEDICUBE18.mp4",
+    "video": "img/videos/Medicube18.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -1507,7 +1507,7 @@
       "Hidratación Profunda"
     ],
     "ficha": "img/fichas/MEDICUBE21.png",
-    "video": "img/videos/MEDICUBE21.mp4",
+    "video": "img/videos/Medicube21.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -1544,7 +1544,7 @@
       "Anti-edad"
     ],
     "ficha": "img/fichas/MEDICUBE100.png",
-    "video": "img/videos/MEDICUBE100.mp4",
+    "video": "img/videos/Medicube100.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -1664,7 +1664,7 @@
     "mas_vendido": false,
     "preventa": true,
     "ficha": "img/fichas/MEDICUBE85.png",
-    "video": "img/videos/MEDICUBE85.mp4"
+    "video": "img/videos/Medicube85.mp4"
   },
   {
     "id": "MEDICUBE109",
@@ -2107,7 +2107,7 @@
       "Protección Solar"
     ],
     "ficha": "img/fichas/TOCOBO32.png",
-    "video": "img/videos/TOCOBO32.mp4",
+    "video": "img/videos/Tocobo32.mp4",
     "mas_vendido": true,
     "preventa": true
   },
@@ -2165,7 +2165,7 @@
     "mas_vendido": true,
     "preventa": true,
     "ficha": "img/fichas/TOCOBO39.png",
-    "video": "img/videos/TOCOBO39.mp4"
+    "video": "img/videos/Tocobo39.mp4"
   },
   {
     "id": "TOCOBO48",
@@ -2188,7 +2188,7 @@
       "Protección Solar"
     ],
     "ficha": "img/fichas/TOCOBO48.png",
-    "video": "img/videos/TOCOBO48.mp4",
+    "video": "img/videos/Tocobo48.mp4",
     "mas_vendido": false,
     "preventa": true
   },
@@ -2209,7 +2209,7 @@
       "Protección Solar"
     ],
     "ficha": "img/fichas/TOCOBO31.png",
-    "video": "img/videos/TOCOBO31.mp4",
+    "video": "img/videos/Tocobo31.mp4",
     "mas_vendido": true,
     "preventa": true
   },
