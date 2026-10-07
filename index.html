@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrebell Skin — Preventa</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --beige: #f4e8d8;
+  --beige-light: #faf4ec;
+  --beige-mid: #ede0cc;
+  --taupe: #b19b84;
+  --taupe-dark: #8a7362;
+  --taupe-xdark: #5c4d3e;
+  --text: #2e2520;
+  --text-mid: #6b5a4e;
+  --text-light: #9e8b7e;
+  --white: #ffffff;
+  --badge-new: #d4a853;
+  --badge-out: #c0392b;
+  --badge-best: #8a7362;
+  --badge-preventa: #5f8a6b;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(46,37,32,0.08);
+  --shadow-hover: 0 8px 28px rgba(46,37,32,0.15);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scrollbar-gutter: stable; }
+body { font-family: 'Fira Sans', sans-serif; background: var(--beige-light); color: var(--text); min-height: 100vh; }
+
+/* ── HEADER ── */
+header { background: var(--white); border-bottom: 1px solid var(--beige-mid); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 8px rgba(46,37,32,0.06); }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; gap: 16px; height: 68px; }
+.logo-area { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.header-logo { height: 46px; width: auto; object-fit: contain; }
+.brand-subtitle { font-size: 11px; font-weight: 400; color: var(--text-light); letter-spacing: 0.08em; text-transform: uppercase; }
+.header-spacer { flex: 1; }
+.header-stats { font-size: 12px; color: var(--text-light); white-space: nowrap; }
+
+/* ── FILTERS ── */
+.filters-bar { background: var(--white); border-bottom: 1px solid var(--beige-mid); padding: 12px 24px; position: sticky; top: var(--header-h, 68px); z-index: 99; }
+.filters-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.filters-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.view-toggle { display: flex; background: var(--beige); border-radius: 8px; padding: 3px; flex-shrink: 0; }
+.view-toggle button { background: none; border: none; padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--text-mid); font-family: inherit; transition: all 0.18s; }
+.view-toggle button.active { background: var(--taupe); color: var(--white); }
+.search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 380px; }
+.search-wrap input { width: 100%; padding: 8px 34px 8px 14px; border: 1.5px solid var(--beige-mid); border-radius: 8px; font-size: 13px; font-family: inherit; color: var(--text); background: var(--beige-light); outline: none; transition: border-color 0.18s; }
+.search-wrap input:focus { border-color: var(--taupe); }
+.search-wrap input::placeholder { color: var(--text-light); }
+.search-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: var(--text-light); pointer-events: none; font-size: 14px; }
+.search-clear { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--text-light); font-size: 15px; padding: 2px; display: none; }
+.toggle-label { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; color: var(--text-mid); white-space: nowrap; flex-shrink: 0; }
+.toggle-label input[type="checkbox"] { display: none; }
+.toggle-switch { width: 36px; height: 20px; background: var(--beige-mid); border-radius: 10px; position: relative; transition: background 0.2s; flex-shrink: 0; }
+.toggle-switch::after { content: ''; position: absolute; width: 14px; height: 14px; background: var(--white); border-radius: 50%; top: 3px; left: 3px; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+.toggle-label input:checked + .toggle-switch { background: var(--taupe); }
+.toggle-label input:checked + .toggle-switch::after { transform: translateX(16px); }
+.nuevo-btn { display: flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1.5px solid var(--beige-mid); border-radius: 8px; background: var(--white); font-size: 12px; font-family: inherit; color: var(--text-mid); cursor: pointer; transition: all 0.18s; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+.nuevo-btn.active { background: var(--badge-new); border-color: var(--badge-new); color: var(--white); }
+.nuevo-btn .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--badge-new); }
+.nuevo-btn.active .dot { background: rgba(255,255,255,0.7); }
+.preventa-btn.active { background: var(--badge-preventa); border-color: var(--badge-preventa); color: var(--white); }
+.preventa-btn .dot { background: var(--badge-preventa); }
+.sort-select { padding: 7px 10px; border: 1.5px solid var(--beige-mid); border-radius: 8px; font-size: 12px; font-family: inherit; color: var(--text-mid); background: var(--white); cursor: pointer; outline: none; flex-shrink: 0; }
+.sort-select:focus { border-color: var(--taupe); }
+.pills-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.pill { padding: 5px 13px; border-radius: 20px; border: 1.5px solid var(--beige-mid); background: var(--white); font-size: 12px; font-weight: 500; cursor: pointer; color: var(--text-mid); font-family: inherit; transition: all 0.18s; white-space: nowrap; }
+.pill:hover { border-color: var(--taupe); color: var(--taupe-dark); }
+.pill.active { background: var(--taupe); border-color: var(--taupe); color: var(--white); }
+.pill b { font-weight: 600; color: var(--taupe-dark); margin-left: 2px; }
+.pill.active b { color: rgba(255,255,255,0.85); }
+
+/* ── BOTÓN FILTROS COLAPSABLES (solo móvil) ── */
+.filters-toggle-btn { display: none; align-items: center; gap: 6px; padding: 6px 12px; border: 1.5px solid var(--beige-mid); border-radius: 8px; background: var(--white); font-size: 12px; font-family: inherit; color: var(--text-mid); cursor: pointer; font-weight: 500; white-space: nowrap; flex-shrink: 0; transition: all 0.18s; }
+.filters-toggle-btn .chev { font-size: 9px; transition: transform 0.2s; }
+.filters-bar.filters-open .filters-toggle-btn { background: var(--taupe); border-color: var(--taupe); color: var(--white); }
+.filters-bar.filters-open .filters-toggle-btn .chev { transform: rotate(180deg); }
+.filters-extra { display: contents; }
+.fbreak { display: none; }
+
+@media (max-width: 600px) {
+  .filters-toggle-btn { display: flex; }
+  .filters-row { gap: 8px; }
+  .view-toggle { overflow-x: auto; scrollbar-width: none; }
+  .view-toggle::-webkit-scrollbar { display: none; }
+  .view-toggle button { flex: 1; white-space: nowrap; padding: 6px 10px; font-size: 12.5px; }
+  .search-wrap { flex: 1 1 auto; min-width: 0; max-width: none; }
+  /* Filtros rapidos siempre visibles en movil, ordenados por filas */
+  .fbreak { display: block; flex-basis: 100%; height: 0; margin: 0; }
+  .view-toggle { flex: 1 1 auto; min-width: 0; width: auto; order: 1; }
+  #cartBtn { order: 2; }
+  .fbreak.b1 { order: 3; }
+  .search-wrap { order: 4; }
+  .toggle-label { order: 5; }
+  .fbreak.b2 { order: 6; }
+  /* Filtros + Solo nuevos + Solo preventa + Ordenar: un solo renglon */
+  .filters-toggle-btn { order: 7; }
+  #nuevoBtn { order: 8; }
+  #preventaBtn { order: 9; }
+  .sort-select { order: 10; }
+  .fbreak.b3 { display: none; }
+  .filters-toggle-btn, #nuevoBtn, #preventaBtn { padding: 6px 7px; font-size: 10.5px; gap: 4px; flex: 0 0 auto; }
+  .sort-select { flex: 1 1 0; min-width: 0; width: auto; padding: 6px 18px 6px 8px; font-size: 11px; text-overflow: ellipsis; }
+  .toggle-label { font-size: 12px; }
+  /* El boton "Filtros" ahora solo despliega las categorias */
+  .pills-row { display: none; }
+  .filters-bar.filters-open .pills-row { display: flex; }
+
+}
+
+/* ── MAIN ── */
+.main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+.results-count { font-size: 12px; color: var(--text-light); padding-bottom: 14px; }
+.section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); padding: 20px 0 12px; border-bottom: 1px solid var(--beige-mid); margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
+.section-label span { font-weight: 400; color: var(--text-light); font-size: 10px; }
+.section-label.bestseller-label { color: var(--taupe-xdark); font-size: 13px; border-bottom: 2px solid var(--taupe); padding-top: 4px; }
+
+/* ── CARRUSEL MÁS VENDIDOS ── */
+.bestseller-wrap { margin-bottom: 6px; }
+.section-label.preventa-label { color: var(--badge-preventa); font-size: 13px; border-bottom: 2px solid var(--badge-preventa); padding-top: 4px; }
+.bestseller-carousel { position: relative; display: flex; align-items: center; gap: 8px; }
+.bestseller-track {
+  display: flex; gap: 14px; flex: 1;
+  overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory;
+  padding: 2px 2px 12px;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.bestseller-track::-webkit-scrollbar { display: none; }
+.bestseller-item { flex: 0 0 calc(25% - 11px); min-width: 150px; scroll-snap-align: start; }
+@media (max-width: 1100px) { .bestseller-item { flex: 0 0 calc(33.333% - 10px); } }
+@media (max-width: 720px)  { .bestseller-item { flex: 0 0 calc(50% - 7px); } }
+@media (max-width: 600px)  { .bestseller-track { gap: 10px; } .bestseller-item { flex: 0 0 calc(50% - 5px); min-width: 0; } }
+.carousel-arrow {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  border: 1.5px solid var(--beige-mid); background: var(--white); color: var(--taupe-dark);
+  font-size: 20px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow); transition: all 0.18s;
+}
+.carousel-arrow:hover { border-color: var(--taupe); background: var(--taupe); color: var(--white); }
+@media (max-width: 480px) { .carousel-arrow { width: 28px; height: 28px; font-size: 17px; } }
+
+/* ── GRID — 4 columnas ── */
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px)  { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .product-grid { gap: 10px; } }
+@media (max-width: 420px)  { .product-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; } }
+
+@media (max-width: 420px) {
+  .card-body { padding: 10px 10px 11px; }
+  .card-marca { font-size: 9px; letter-spacing: 0.07em; }
+  .card-name { font-size: 11.5px; line-height: 1.3; }
+  .card-ref { font-size: 10px; margin-bottom: 6px; }
+  .card-price { font-size: 13.5px; }
+  .card-hint { display: none; }
+  .card-img-wrap img { padding: 8px; }
+  .badge { font-size: 8px; padding: 2px 5px; }
+  .card-top-badges { top: 6px; right: 6px; gap: 3px; }
+}
+
+/* ── TARJETA ── */
+.card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: box-shadow 0.22s ease, transform 0.22s ease; display: flex; flex-direction: column; position: relative; cursor: pointer; }
+.card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.card.agotado { opacity: 0.62; }
+.card-img-wrap { aspect-ratio: 1; background: var(--white); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; position: relative; }
+.card-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
+.card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--taupe); font-size: 10px; font-weight: 500; letter-spacing: 0.05em; text-align: center; padding: 12px; text-transform: uppercase; }
+.card-body { padding: 12px 13px 13px; flex: 1; display: flex; flex-direction: column; }
+.card-marca { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); margin-bottom: 3px; }
+.card-name { font-size: 12.5px; font-weight: 400; color: var(--text); line-height: 1.35; flex: 1; margin-bottom: 6px; }
+.card-ref { font-size: 11px; color: var(--text-light); margin-bottom: 8px; }
+.card-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 7px; margin-top: auto; }
+.card-price { font-size: 15px; font-weight: 600; color: var(--taupe-dark); }
+.card-price.pendiente { font-size: 11px; font-weight: 400; color: var(--text-light); font-style: italic; }
+.card-hint { font-size: 10px; color: var(--text-light); opacity: 0.7; }
+/* Mismo lenguaje visual que el botón "Carrito" del header: fondo blanco,
+   borde beige, icono de bolsa y texto oscuro. Así el cliente los relaciona. */
+.card-add-btn {
+  width: 100%; display: inline-flex; align-items: center; justify-content: center;
+  gap: 7px; background: var(--white); border: 1.5px solid var(--beige-mid);
+  color: var(--text); font-family: inherit; font-size: 12px; font-weight: 500;
+  padding: 8px 10px; border-radius: 8px; cursor: pointer; line-height: 1;
+  transition: all 0.18s;
+}
+.card-add-btn:hover { border-color: var(--taupe); }
+.card-add-btn.added { background: #5f8a6b; border-color: #5f8a6b; color: var(--white); }
+.card-add-ico { font-size: 14px; line-height: 1; }
+@media (max-width: 420px) {
+  .card-add-btn { font-size: 11px; gap: 5px; padding: 8px 6px; }
+  .card-add-ico { font-size: 13px; }
+}
+.card-footer .card-hint { display: none; }
+
+/* Badges on card */
+.card-top-badges { position: absolute; top: 8px; right: 8px; display: flex; flex-direction: column; gap: 4px; align-items: flex-end; z-index: 1; }
+.badge { font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 7px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+.badge-agotado { background: #fdecea; color: var(--badge-out); }
+.badge-nuevo { background: #fef6e4; color: var(--badge-new); }
+.badge-vendidos { background: var(--beige); color: var(--badge-best); }
+.badge-preventa { background: #eaf3ec; color: var(--badge-preventa); font-size: 11.5px; padding: 5px 10px; letter-spacing: 0.07em; }
+
+/* Color dots on card (small) */
+.card-color-dots { display: flex; gap: 4px; padding: 6px 13px 0; flex-wrap: wrap; }
+.card-color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--beige-mid); overflow: hidden; flex-shrink: 0; }
+.card-color-dot img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Miniaturas sobre la foto (indican fotos extra / ficha tecnica) ── */
+.card-thumbs {
+  position: absolute; left: 0; right: 0; bottom: 6px;
+  display: flex; justify-content: center; align-items: center; gap: 4px;
+  padding: 0 8px; pointer-events: none; z-index: 2;
+}
+.card-thumb {
+  width: 26px; height: 26px; border-radius: 5px; overflow: hidden;
+  background: var(--white); border: 1px solid var(--beige-mid);
+  box-shadow: 0 1px 4px rgba(30,20,15,0.12);
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+}
+.card-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 2px; }
+.card-thumb.is-ficha { background: var(--white); border-color: var(--taupe); }
+.card-thumb.is-ficha img { object-fit: cover; object-position: top center; padding: 0; }
+.card-thumb.is-more {
+  width: auto; min-width: 26px; padding: 0 5px;
+  font-size: 10px; font-weight: 600; color: var(--taupe-dark);
+  background: var(--beige-light);
+}
+.card-thumb.is-video {
+  background: var(--taupe-dark); border-color: var(--taupe-dark);
+  color: var(--white); font-size: 9px; padding-left: 2px;
+}
+@media (max-width: 600px) {
+  .card-thumbs { bottom: 4px; gap: 3px; }
+  .card-thumb { width: 21px; height: 21px; border-radius: 4px; }
+  .card-thumb.is-more { min-width: 21px; font-size: 9px; }
+}
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(30,20,15,0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+  /* Capas de composicion permanentes. Sin esto Chrome crea la capa al abrir y
+     la descarta al terminar la animacion, y en ese instante muestra un
+     fotograma con los fondos sin pintar: se ve el catalogo de atras a traves
+     del velo y del panel del modal. Ese es el parpadeo. */
+  transform: translateZ(0);
+  will-change: opacity;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  position: relative;
+  background: var(--white);
+  border-radius: 16px;
+  max-width: 780px; width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 24px 60px rgba(30,20,15,0.25);
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+/* Modal: foto izquierda */
+.modal-img-side {
+  width: 300px; flex-shrink: 0;
+  background: var(--beige-light);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.modal-img-side img { width: 100%; flex: 1 1 auto; min-height: 0; height: auto; object-fit: contain; padding: 24px; }
+.modal-img-placeholder { color: var(--taupe); font-size: 11px; text-align: center; padding: 24px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* Color dots in modal */
+.modal-dots { display: flex; gap: 6px; padding: 8px 16px 10px; justify-content: center; align-items: center; flex-wrap: wrap; background: rgba(255,255,255,0.7); width: 100%; }
+.modal-dot {
+  width: 6px; height: 6px; padding: 0; border-radius: 50%;
+  border: none; background: var(--beige-mid); cursor: pointer;
+  flex-shrink: 0; transition: background 0.15s, width 0.15s, opacity 0.15s;
+}
+.modal-dot:hover { background: var(--taupe); }
+.modal-dot.active { background: var(--taupe-dark); width: 16px; border-radius: 3px; }
+.modal-dot.is-ficha-dot { background: transparent; border: 1.5px solid var(--beige-mid); width: 7px; height: 7px; }
+.modal-dot.is-ficha-dot.active { background: var(--taupe-dark); border-color: var(--taupe-dark); width: 16px; border-radius: 3px; }
+
+/* Modal: info derecha */
+.modal-info { flex: 1; padding: 32px 28px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+#modalDescWrap { flex: 1 1 auto; min-height: 60px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.modal-close { position: absolute; top: 14px; right: 14px; background: var(--white); border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-mid); box-shadow: var(--shadow); transition: background 0.15s; z-index: 10; }
+.modal-close:hover { background: var(--beige); }
+.modal-badges { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
+.modal-marca { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; }
+.modal-nombre { font-size: 20px; font-weight: 500; color: var(--text); line-height: 1.25; margin-bottom: 4px; }
+.modal-ref { font-size: 12px; color: var(--text-light); margin-bottom: 20px; }
+.modal-desc-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); margin-bottom: 8px; }
+.modal-desc { font-size: 13.5px; color: var(--text-mid); line-height: 1.65; font-weight: 300; margin-bottom: 8px; }
+.modal-footer { padding-top: 18px; border-top: 1px solid var(--beige-mid); flex-shrink: 0; margin-top: auto; background: var(--white); }
+.modal-price { font-size: 24px; font-weight: 600; color: var(--taupe-dark); }
+.modal-price.pendiente { font-size: 14px; font-weight: 400; color: var(--text-light); font-style: italic; }
+
+/* ── CARRUSEL FOTO / FICHA TÉCNICA EN MODAL ── */
+.modal-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--white); border: 1px solid var(--beige-mid);
+  color: var(--taupe-dark); font-size: 16px; line-height: 1;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow); z-index: 5;
+  transition: background 0.15s, transform 0.15s;
+}
+.modal-arrow:hover { background: var(--beige); transform: translateY(-50%) scale(1.08); }
+.modal-arrow.prev { left: 10px; }
+.modal-arrow.next { right: 10px; }
+
+.modal-slide-tabs {
+  display: flex; gap: 6px; justify-content: center;
+  padding: 8px 12px; background: rgba(255,255,255,0.85); width: 100%;
+}
+.modal-slide-tab {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px; cursor: pointer;
+  color: var(--taupe); background: transparent; border: 1px solid var(--beige-mid);
+  transition: all 0.15s;
+}
+.modal-slide-tab.active { background: var(--taupe-dark); color: var(--white); border-color: var(--taupe-dark); }
+.modal-slide-tab:hover:not(.active) { background: var(--beige); }
+
+/* ── VIDEO DEL PRODUCTO (slide del carrusel) ── */
+.modal-video {
+  display: none;
+  width: 100%; height: auto;
+  object-fit: contain; background: var(--beige-light);
+}
+/* flex:1 1 0 + min-height:0 => el video ocupa solo el espacio sobrante,
+   sin tapar los dots ni las pestañas Foto / Ficha técnica / Video */
+.modal-video.show { display: block; flex: 1 1 0; min-height: 0; }
+.modal-play-btn {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 58px; height: 58px; border-radius: 50%; border: none;
+  background: rgba(255,255,255,0.92); color: var(--taupe-dark);
+  font-size: 20px; padding-left: 4px; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  box-shadow: 0 4px 18px rgba(30,20,15,0.28); z-index: 4;
+  transition: transform 0.15s, background 0.15s;
+}
+.modal-play-btn.show { display: flex; }
+.modal-play-btn:hover { transform: translate(-50%,-50%) scale(1.08); background: #fff; }
+
+.modal-img-side img.is-ficha { cursor: zoom-in; padding: 10px; }
+.modal-img-side img.is-zoomable { cursor: zoom-in; }
+.ficha-zoom-hint {
+  position: static; align-self: center; flex-shrink: 0;
+  margin: 0 0 8px;
+  font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(30,20,15,0.65); color: #fff;
+  padding: 4px 12px; border-radius: 20px; pointer-events: none;
+  white-space: nowrap;
+}
+
+/* ── LIGHTBOX FICHA TÉCNICA (pantalla completa, scroll vertical) ── */
+.ficha-overlay {
+  position: fixed; inset: 0;
+  background: rgba(20,14,10,0.92);
+  z-index: 400;
+  display: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 48px 12px 32px;
+}
+.ficha-overlay.open { display: block; }
+.ficha-overlay img {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #fff;
+}
+.ficha-close {
+  position: fixed; top: 14px; right: 14px;
+  background: var(--white); border: none; border-radius: 50%;
+  width: 38px; height: 38px; font-size: 19px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-mid); box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  z-index: 401;
+}
+.ficha-close:hover { background: var(--beige); }
+
+/* Modal responsive — mobile */
+@media (max-width: 600px) {
+  .modal { flex-direction: column; max-height: 90vh; border-radius: 20px; align-self: center; width: calc(100% - 24px); max-width: 460px; margin: 0 auto; }
+  /* svh (viewport pequeno) es constante; dvh cambia cuando el navegador
+     movil muestra u oculta la barra de direcciones y eso redimensiona el
+     modal justo al abrirlo. */
+  @supports (height: 100svh) { .modal { max-height: 88svh; } }
+  /* X más grande y separado del borde para que sea fácil de tocar */
+  .modal-close { top: 10px; right: 10px; width: 38px; height: 38px; font-size: 20px; }
+  .modal-overlay { align-items: center; padding: 12px; }
+  .modal-img-side { width: 100%; height: 36vh; min-height: 190px; max-height: 340px; flex-shrink: 0; }
+  .modal-img-side.showing-ficha { height: 44vh; min-height: 240px; max-height: 400px; }
+  .modal-img-side img { padding: 14px; }
+  /* La columna de info es la que scrollea: descripcion + precio + boton */
+  .modal-info { padding: 20px 20px 28px; flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+  #modalDescWrap { flex: 0 0 auto; overflow: visible; min-height: 0; }
+  .modal-footer { margin-top: 18px; }
+  .modal-nombre { font-size: 17px; }
+  .modal-arrow { width: 30px; height: 30px; font-size: 14px; }
+  .ficha-overlay { padding: 56px 0 24px; }
+  .ficha-overlay img { border-radius: 0; }
+}
+
+
+/* ── PRICE MODE TOGGLE ── */
+.price-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--beige);
+  border-radius: 8px;
+  padding: 3px;
+  flex-shrink: 0;
+}
+.price-mode-toggle button {
+  background: none;
+  border: none;
+  padding: 6px 13px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-mid);
+  font-family: inherit;
+  transition: all 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.price-mode-toggle button.active {
+  background: var(--taupe);
+  color: var(--white);
+}
+.lock-icon { font-size: 11px; opacity: 0.7; }
+
+/* ── PASSWORD MODAL ── */
+.pwd-overlay {
+  position: fixed; inset: 0;
+  background: rgba(30,20,15,0.45);
+  backdrop-filter: blur(4px);
+  z-index: 300;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.pwd-overlay.open { opacity: 1; pointer-events: all; }
+.pwd-modal {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 16px 48px rgba(30,20,15,0.2);
+  transform: translateY(12px);
+  transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+  text-align: center;
+}
+.pwd-overlay.open .pwd-modal { transform: translateY(0); }
+.pwd-modal h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--taupe-xdark);
+  margin-bottom: 6px;
+}
+.pwd-modal p {
+  font-size: 12.5px;
+  color: var(--text-light);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.pwd-input-wrap {
+  position: relative;
+  margin-bottom: 10px;
+}
+.pwd-input-wrap input {
+  width: 100%;
+  padding: 11px 40px 11px 16px;
+  border: 1.5px solid var(--beige-mid);
+  border-radius: 8px;
+  font-size: 20px;
+  font-family: inherit;
+  letter-spacing: 6px;
+  text-align: center;
+  outline: none;
+  color: var(--text);
+  transition: border-color 0.18s;
+}
+.pwd-input-wrap input:focus { border-color: var(--taupe); }
+.pwd-input-wrap input.error { border-color: var(--badge-out); animation: shake 0.35s ease; }
+.pwd-show-btn {
+  position: absolute;
+  right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  cursor: pointer; color: var(--text-light); font-size: 15px;
+}
+.pwd-error-msg {
+  font-size: 12px;
+  color: var(--badge-out);
+  min-height: 18px;
+  margin-bottom: 12px;
+}
+.pwd-submit {
+  width: 100%;
+  padding: 11px;
+  background: var(--taupe);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.pwd-submit:hover { background: var(--taupe-dark); }
+.pwd-cancel {
+  margin-top: 10px;
+  background: none; border: none;
+  color: var(--text-light); font-size: 12px;
+  cursor: pointer; font-family: inherit;
+  text-decoration: underline;
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%,60% { transform: translateX(-6px); }
+  40%,80% { transform: translateX(6px); }
+}
+
+/* ── CARRITO — BOTÓN HEADER ── */
+.cart-btn { position: relative; background: var(--white); border: 1.5px solid var(--beige-mid); border-radius: 8px; height: 34px; padding: 0 12px; font-size: 16px; font-family: inherit; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; flex-shrink: 0; transition: all 0.18s; }
+.cart-btn:hover { border-color: var(--taupe); }
+.cart-label { font-size: 13px; font-weight: 500; color: var(--text); white-space: nowrap; }
+@media (max-width: 600px) { .cart-label { display: none; } .cart-btn { padding: 0; width: 40px; } }
+.cart-count { position: absolute; top: -6px; right: -7px; min-width: 17px; height: 17px; padding: 0 4px; background: var(--taupe-dark); color: var(--white); font-size: 10px; font-weight: 600; border-radius: 9px; display: none; align-items: center; justify-content: center; line-height: 1; }
+.cart-count.show { display: flex; }
+
+/* ── CARRITO — CONTROLES EN MODAL ── */
+.order-controls { margin-top: 14px; }
+.order-note-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; }
+.order-note { width: 100%; padding: 9px 12px; border: 1.5px solid var(--beige-mid); border-radius: 8px; font-size: 13px; font-family: inherit; color: var(--text); background: var(--beige-light); outline: none; margin-bottom: 12px; transition: border-color 0.18s; }
+.order-note:focus { border-color: var(--taupe); }
+.order-note::placeholder { color: var(--text-light); }
+.order-row { display: flex; align-items: center; gap: 10px; }
+.qty-select { display: flex; align-items: center; border: 1.5px solid var(--beige-mid); border-radius: 8px; overflow: hidden; flex-shrink: 0; background: var(--white); }
+.qty-select button { background: none; border: none; width: 32px; height: 36px; font-size: 17px; cursor: pointer; color: var(--taupe-dark); font-family: inherit; transition: background 0.15s; }
+.qty-select button:hover { background: var(--beige); }
+.qty-select span, .qty-select input.qty-input { min-width: 30px; text-align: center; font-size: 14px; font-weight: 600; color: var(--text); }
+.qty-select input.qty-input {
+  border: none; background: transparent; font-family: inherit; padding: 0;
+  -moz-appearance: textfield;
+}
+.qty-select input.qty-input::-webkit-outer-spin-button,
+.qty-select input.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.qty-select input.qty-input:focus { outline: none; background: var(--beige-light); }
+.add-cart-btn { flex: 1; padding: 10px 14px; background: var(--taupe); color: var(--white); border: none; border-radius: 8px; font-size: 13.5px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.18s; white-space: nowrap; }
+.add-cart-btn:hover { background: var(--taupe-dark); }
+.add-cart-btn.added { background: var(--taupe-xdark); }
+
+/* ── CARRITO — DRAWER ── */
+.cart-overlay { position: fixed; inset: 0; background: rgba(30,20,15,0.45); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); z-index: 250; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-drawer { position: fixed; top: 0; right: 0; height: 100%; width: 400px; max-width: 94vw; background: var(--white); z-index: 260; transform: translateX(105%); transition: transform 0.28s cubic-bezier(0.22,1,0.36,1); display: flex; flex-direction: column; box-shadow: -12px 0 40px rgba(30,20,15,0.18); }
+.cart-drawer.open { transform: translateX(0); }
+.cart-head { padding: 18px 20px; border-bottom: 1px solid var(--beige-mid); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.cart-head h3 { font-size: 15px; font-weight: 600; color: var(--taupe-xdark); }
+.cart-head button { background: none; border: none; font-size: 17px; cursor: pointer; color: var(--text-mid); padding: 4px; }
+.cart-items { flex: 1; overflow-y: auto; padding: 8px 20px; -webkit-overflow-scrolling: touch; }
+.cart-empty { text-align: center; color: var(--text-light); font-size: 13px; line-height: 1.6; padding: 48px 12px; }
+.cart-item { padding: 14px 0; border-bottom: 1px solid var(--beige); }
+.cart-item-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.cart-item-name { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.35; }
+.cart-item-ref { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+.cart-item-nota { font-size: 11.5px; color: var(--text-mid); font-style: italic; margin-top: 3px; }
+.cart-item-del { background: none; border: none; color: var(--text-light); cursor: pointer; font-size: 14px; padding: 2px 4px; flex-shrink: 0; }
+.cart-item-del:hover { color: var(--badge-out); }
+.cart-item-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; gap: 10px; }
+.cart-item-bottom .qty-select button { height: 28px; width: 28px; font-size: 14px; }
+.cart-item-bottom .qty-select span, .cart-item-bottom .qty-select input.qty-input { font-size: 12.5px; min-width: 26px; width: 26px; }
+.cart-item-prices { text-align: right; }
+.cart-item-unit { font-size: 11px; color: var(--text-light); }
+.cart-item-sub { font-size: 13.5px; font-weight: 600; color: var(--taupe-dark); }
+.cart-item-sub.pendiente { font-size: 11px; font-weight: 400; font-style: italic; color: var(--text-light); }
+.cart-foot { border-top: 1px solid var(--beige-mid); padding: 16px 20px 20px; flex-shrink: 0; }
+.cart-total-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.cart-total-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); }
+.cart-total { font-size: 20px; font-weight: 600; color: var(--taupe-dark); }
+.cart-total.pendiente { font-size: 13px; font-weight: 400; font-style: italic; color: var(--text-light); }
+.cart-total-note { font-size: 10.5px; color: var(--text-light); margin-bottom: 6px; min-height: 4px; }
+.cart-send-btn { width: 100%; margin-top: 8px; padding: 13px; background: #21a15c; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.18s; }
+.cart-send-btn:hover { background: #1b8a4e; }
+.cart-clear-btn { display: block; margin: 10px auto 0; background: none; border: none; color: var(--text-light); font-size: 12px; cursor: pointer; font-family: inherit; text-decoration: underline; }
+.cart-clear-btn:hover { color: var(--badge-out); }
+
+/* ── MENÚ DESTINOS WHATSAPP ── */
+.dest-overlay { position: fixed; inset: 0; background: rgba(30,20,15,0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); z-index: 320; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.dest-overlay.open { opacity: 1; pointer-events: all; }
+.dest-modal { background: var(--white); border-radius: 14px; padding: 24px 22px 16px; width: 100%; max-width: 410px; box-shadow: 0 16px 48px rgba(30,20,15,0.2); text-align: center; }
+.dest-modal h3 { font-size: 16px; font-weight: 600; color: var(--taupe-xdark); margin-bottom: 4px; }
+.dest-modal p { font-size: 12.5px; color: var(--text-light); margin-bottom: 14px; }
+.dest-list { max-height: 52vh; overflow-y: auto; text-align: left; display: flex; flex-direction: column; gap: 6px; padding-right: 2px; -webkit-overflow-scrolling: touch; }
+.dest-group { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taupe); padding: 10px 2px 2px; }
+.dest-item { display: flex; flex-direction: column; gap: 1px; padding: 10px 12px; border: 1.5px solid var(--beige-mid); border-radius: 10px; background: var(--white); cursor: pointer; font-family: inherit; text-align: left; transition: all 0.15s; }
+.dest-item:hover { border-color: var(--taupe); background: var(--beige-light); }
+.dest-item .dest-label { font-size: 13px; font-weight: 500; color: var(--text); }
+.dest-item .dest-sub { font-size: 11px; color: var(--text-light); }
+
+@media (max-width: 600px) {
+  .cart-drawer { width: 100%; max-width: 100%; }
+  .dest-modal { max-height: 86vh; overflow: hidden; display: flex; flex-direction: column; }
+  .dest-list { max-height: none; flex: 1; }
+}
+
+/* ── CARRITO — FORMULARIO DATOS DEL CLIENTE (previo a envío WhatsApp) ── */
+.cliente-modal { max-width: 430px; max-height: 88vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.cliente-form { text-align: left; margin-top: 4px; }
+.mayorista-notice-box {
+  font-size: 12px; color: #6b5a20; background: #fdf3d0;
+  border: 1px solid #e8d27a; border-radius: 6px;
+  padding: 8px 10px; margin: 8px 0; text-align: center;
+}
+.agente-retenedor-toggle { display: flex; gap: 8px; margin-top: 4px; }
+.agente-ret-btn {
+  flex: 1; padding: 8px 0; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--taupe); background: #fff; color: var(--text-mid);
+  font-size: 13px; font-weight: 600;
+}
+.agente-ret-btn.active { background: var(--taupe-dark); color: #fff; border-color: var(--taupe-dark); }
+.cliente-field { margin-bottom: 2px; }
+.cliente-field .order-note.error { border-color: var(--badge-out); animation: shake 0.35s ease; background: #fdf3f2; }
+.cliente-error-msg { font-size: 11px; color: var(--badge-out); min-height: 15px; margin: -8px 0 8px 2px; }
+.cliente-error-general { font-size: 12px; color: var(--badge-out); min-height: 16px; margin: 2px 0 8px; text-align: center; }
+
+@media (max-width: 600px) {
+  .cliente-modal { max-height: 90vh; }
+}
+
+/* Loading / empty */
+#loading { text-align: center; padding: 80px 24px; color: var(--text-light); }
+.spinner { width: 32px; height: 32px; border: 3px solid var(--beige-mid); border-top-color: var(--taupe); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.empty-state { text-align: center; padding: 64px 24px; color: var(--text-light); }
+.empty-state .icon { font-size: 40px; margin-bottom: 12px; }
+
+/* ── LAZY LOAD / SCROLL INFINITO ── */
+#scroll-sentinel { height: 10px; }
+.card-img-wrap img[data-src] { background: var(--beige-light); }
+
+@media (max-width: 600px) {
+  .main { padding: 14px; }
+  .filters-bar { padding: 10px 14px; }
+  header { padding: 0 14px; }
+  .header-stats { display: none; }
+  .header-spacer { display: none; }
+  /* Logo y modos en un solo renglon */
+  .header-inner { flex-wrap: nowrap; height: auto; min-height: 64px; padding: 10px 0; gap: 10px; }
+  .logo-area { width: auto; gap: 8px; flex: 0 1 auto; min-width: 0; }
+  .header-logo { height: 30px; }
+  .brand-subtitle { display: none; }
+  .price-mode-toggle { flex: 0 0 auto; margin-left: auto; padding: 3px; }
+  .price-mode-toggle button { flex: 0 0 auto; padding: 7px 9px; font-size: 11px; gap: 3px; }
+  .lock-icon { font-size: 9.5px; }
+  .cart-btn { height: 34px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PANEL DE FILTROS VISUAL  (pasos de rutina / marcas / tipo de piel)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Header mas compacto */
+.header-inner { height: 58px; }
+.header-logo  { height: 38px; }
+.header-stats { font-size: 11.5px; }
+.price-mode-toggle button { padding: 5px 12px; font-size: 11.5px; }
+.cart-btn { height: 32px; }
+
+.filter-panel {
+  background: var(--beige-light);
+  border: 1px solid var(--beige-mid);
+  border-radius: var(--radius);
+  padding: 13px 14px;
+}
+.filter-panel-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; margin-bottom: 10px;
+}
+.filter-panel-title {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--taupe-dark);
+}
+.filter-panel-title .fp-hint {
+  font-weight: 400; letter-spacing: 0.02em; text-transform: none;
+  color: var(--text-light); font-size: 11px; margin-left: 6px;
+}
+.filter-panel-count { font-size: 11px; color: var(--text-light); white-space: nowrap; }
+
+/* ── Tarjetas de paso (Por Rutina) ── */
+.step-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.step-card {
+  position: relative; text-align: left; cursor: pointer; font-family: inherit;
+  background: var(--white); border: 1.5px solid var(--beige-mid);
+  border-radius: 10px; padding: 11px 12px 10px; transition: all 0.18s;
+  display: flex; flex-direction: column; gap: 7px; min-height: 84px;
+}
+.step-card:hover { border-color: var(--taupe); transform: translateY(-1px); box-shadow: var(--shadow); }
+.step-card .sc-icon { color: var(--taupe); display: flex; }
+.step-card .sc-icon svg { width: 18px; height: 18px; }
+.step-card .sc-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.step-card .sc-sub  { font-size: 10.5px; color: var(--text-light); margin-top: 1px; }
+.step-card .sc-count {
+  position: absolute; top: 9px; right: 10px;
+  font-size: 11px; font-weight: 600; color: var(--taupe-dark);
+}
+.step-card.active {
+  background: var(--taupe); border-color: var(--taupe);
+  box-shadow: 0 4px 14px rgba(138,115,98,0.28);
+}
+.step-card.active .sc-icon,
+.step-card.active .sc-name,
+.step-card.active .sc-count { color: var(--white); }
+.step-card.active .sc-sub { color: rgba(255,255,255,0.78); }
+.step-card:disabled { opacity: 0.4; cursor: default; }
+.step-card:disabled:hover { transform: none; box-shadow: none; border-color: var(--beige-mid); }
+
+/* ── Sub-fila de categorias ── */
+.subfilter-wrap { margin-top: 12px; border-top: 1px solid var(--beige-mid); padding-top: 11px; }
+
+/* ── Tarjetas de tipo de piel ── */
+.piel-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.piel-card {
+  position: relative; text-align: left; cursor: pointer; font-family: inherit;
+  background: var(--white); border: 1.5px solid var(--beige-mid);
+  border-radius: 10px; padding: 12px 13px; transition: all 0.18s;
+}
+.piel-card:hover { border-color: var(--taupe); transform: translateY(-1px); box-shadow: var(--shadow); }
+.piel-card .pc-name { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.25; padding-right: 30px; }
+.piel-card .pc-desc { font-size: 11px; color: var(--text-light); line-height: 1.35; margin-top: 5px; }
+.piel-card .pc-count { position: absolute; top: 11px; right: 12px; font-size: 11px; font-weight: 600; color: var(--taupe-dark); }
+.piel-card.active { background: var(--taupe); border-color: var(--taupe); box-shadow: 0 4px 14px rgba(138,115,98,0.28); }
+.piel-card.active .pc-name, .piel-card.active .pc-count { color: var(--white); }
+.piel-card.active .pc-desc { color: rgba(255,255,255,0.8); }
+
+/* ── Chips de marca ── */
+.brand-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.show-more-btn {
+  background: none; border: none; font-family: inherit; font-size: 11.5px;
+  font-weight: 500; color: var(--taupe-dark); cursor: pointer;
+  padding: 5px 4px; text-decoration: underline; text-underline-offset: 3px;
+}
+.show-more-btn:hover { color: var(--text); }
+
+/* ── Chips de filtros activos ── */
+.active-chips { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.active-chips:empty { display: none; }
+.active-chips .ac-label {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--text-light); margin-right: 2px;
+}
+.fchip {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--taupe); color: var(--white); border: none;
+  border-radius: 20px; padding: 5px 8px 5px 12px;
+  font-size: 12px; font-weight: 500; font-family: inherit; cursor: pointer;
+  transition: background 0.18s;
+}
+.fchip:hover { background: var(--taupe-dark); }
+.fchip .fchip-x { font-size: 13px; line-height: 1; opacity: 0.75; }
+.fchip-clear {
+  background: none; border: none; font-family: inherit; font-size: 11.5px;
+  color: var(--text-light); cursor: pointer; padding: 5px 6px;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.fchip-clear:hover { color: var(--badge-out); }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .step-grid { grid-template-columns: repeat(3, 1fr); }
+  .piel-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+  .piel-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .filter-panel { display: none; padding: 11px 11px; }
+  .filters-bar.filters-open .filter-panel { display: block; }
+  /* Con los filtros abiertos la barra puede superar la altura de pantalla:
+     se limita y hace scroll interno en vez de quedarse pegada. */
+  .filters-bar.filters-open {
+    max-height: calc(100vh - var(--header-h, 68px));
+    max-height: calc(100dvh - var(--header-h, 68px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  .step-grid {
+    display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+    margin: 0 -11px; padding: 2px 11px 4px;
+  }
+  .step-grid::-webkit-scrollbar { display: none; }
+  .step-card { flex: 0 0 138px; min-height: 78px; }
+  .piel-grid { grid-template-columns: 1fr; gap: 7px; }
+  .piel-card { padding: 10px 12px; }
+  .piel-card .pc-desc { font-size: 10.5px; }
+  .active-chips { gap: 5px; }
+  .fchip { font-size: 11.5px; padding: 4px 7px 4px 11px; }
+  .header-inner { height: auto; }
+}
+/* En pantallas tactiles se desactiva el desenfoque del velo. Crear una capa
+   de backdrop-filter a pantalla completa es caro en GPU de movil y en Chrome
+   Android produce un repintado de toda la pagina al abrir (el parpadeo).
+   El velo oscuro se mantiene: solo se pierde el desenfoque del fondo.
+   Para revertirlo, borra este bloque. */
+@media (pointer: coarse) {
+  .modal-overlay,
+  .ficha-overlay,
+  .cart-overlay,
+  .dest-overlay {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  /* Compensa la perdida de desenfoque oscureciendo un poco el velo */
+  .modal-overlay { background: rgba(30,20,15,0.66); }
+  .cart-overlay  { background: rgba(30,20,15,0.56); }
+  .dest-overlay  { background: rgba(30,20,15,0.60); }
+}
+
+/* ── PREVENTA ── */
+.preventa-tag { flex: 0 0 auto; margin-left: auto; background: var(--badge-preventa); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; white-space: nowrap; }
+.preventa-banner { background: #eaf3ec; border: 1px solid #cfe2d4; color: #3f6a4b; border-radius: 12px; padding: 12px 16px; margin: 0 0 18px; font-size: 13.5px; line-height: 1.45; }
+.preventa-banner b { color: var(--badge-preventa); }
+@media (max-width: 600px) {
+  .preventa-tag { font-size: 10.5px; padding: 6px 10px; }
+  .preventa-banner { font-size: 12.5px; padding: 10px 12px; margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <img src="img/LOGO_ENTREBELL_SKIN_M.png" alt="Entrebell Skin" class="header-logo"
+           onerror="this.outerHTML='<span style=&quot;font-size:18px;font-weight:600;color:var(--taupe-xdark)&quot;>Entrebell Skin</span>'">
+      <span class="brand-subtitle">Preventa · K-Beauty</span>
+    </div>
+    <div class="header-spacer"></div>
+    <div class="header-stats" id="headerStats"></div>
+    <span class="preventa-tag">Preventa</span>
+    <button class="cart-btn" id="cartBtn" onclick="openCart()" title="Ver pedido">🛍️<span class="cart-label">Carrito</span><span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <div class="filters-inner">
+    <div class="filters-row">
+      <div class="view-toggle">
+        <button id="btnRutina" class="active" onclick="setView('rutina')">Por Rutina</button>
+        <button id="btnMarca" onclick="setView('marca')">Por Marca</button>
+        <button id="btnPiel" onclick="setView('tipo_piel')">Por Tipo de Piel</button>
+      </div>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre o referencia..." oninput="onSearch(this.value)">
+        <span class="search-icon" id="searchIcon">🔍</span>
+        <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+      </div>
+      <button class="filters-toggle-btn" id="filtersToggleBtn" onclick="toggleFilters()">
+        Filtros <span class="chev">▼</span>
+      </button>
+      <div class="filters-extra">
+        <label class="toggle-label" style="display:none">
+          <input type="checkbox" id="toggleAgotados" checked onchange="render()">
+          <div class="toggle-switch"></div>
+          Mostrar agotados
+        </label>
+        <button class="nuevo-btn" id="nuevoBtn" onclick="toggleNuevo()">
+          <span class="dot"></span> Solo nuevos
+        </button>
+        <button class="nuevo-btn preventa-btn" id="preventaBtn" onclick="togglePreventa()" style="display:none">
+          <span class="dot"></span> Solo preventa
+        </button>
+        <select class="sort-select" id="sortSelect" onchange="render()">
+          <option value="default">Ordenar por defecto</option>
+          <option value="name-asc">Nombre A→Z</option>
+          <option value="brand-asc">Marca A→Z</option>
+        </select>
+      </div>
+      <span class="fbreak b1"></span>
+      <span class="fbreak b2"></span>
+      <span class="fbreak b3"></span>
+    </div>
+    <div class="filter-panel" id="filterPanel"></div>
+    <div class="active-chips" id="activeChips"></div>
+    <div class="pills-row" id="pillsRow" style="display:none"></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="preventa-banner"><b>Catálogo de preventa.</b> Estos productos llegan en los próximos días. Haz tu pedido ahora y tu asesora te confirmará precios y fecha de entrega.</div>
+  <div id="loading"><div class="spinner"></div><p>Cargando catálogo…</p></div>
+  <div id="catalogContent" style="display:none"></div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalIfOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()" title="Cerrar">✕</button>
+
+    <div class="modal-img-side" id="modalImgSide">
+      <button class="modal-arrow prev" id="modalArrowPrev" style="display:none" onclick="modalPrevSlide(event)" title="Anterior">‹</button>
+      <img id="modalImg" src="" alt="">
+      <video id="modalVideo" class="modal-video" muted loop playsinline preload="metadata" onclick="toggleModalVideo()"></video>
+      <button class="modal-play-btn" id="modalPlayBtn" onclick="toggleModalVideo(event)" title="Reproducir">▶</button>
+      <button class="modal-arrow next" id="modalArrowNext" style="display:none" onclick="modalNextSlide(event)" title="Siguiente">›</button>
+      <div class="ficha-zoom-hint" id="fichaZoomHint" style="display:none">Toca para ampliar</div>
+      <div class="modal-slide-tabs" id="modalSlideTabs" style="display:none"></div>
+      <div class="modal-dots" id="modalDots" style="display:none"></div>
+    </div>
+
+    <div class="modal-info">
+      <div class="modal-badges" id="modalBadges"></div>
+      <div class="modal-marca" id="modalMarca"></div>
+      <div class="modal-nombre" id="modalNombre"></div>
+      <div class="modal-ref" id="modalRef"></div>
+      <div id="modalDescWrap" style="display:none">
+        <div class="modal-desc-label">Descripción</div>
+        <div class="modal-desc" id="modalDesc"></div>
+      </div>
+      <div class="modal-footer">
+        <div id="modalPrice" class="modal-price"></div>
+        <div class="order-controls" id="orderControls">
+          <div class="order-note-label">Color / Nota (opcional)</div>
+          <input type="text" class="order-note" id="modalNota" maxlength="140"
+                 placeholder="Ej. color turquesa, o alguna observación para tu asesora…">
+          <div class="order-row">
+            <div class="qty-select">
+              <button onclick="modalQtyDelta(-1)" title="Menos">−</button>
+              <input type="number" class="qty-input" id="modalQty" value="1" min="1" max="999"
+                     inputmode="numeric" onchange="modalQtySet(this.value)">
+              <button onclick="modalQtyDelta(1)" title="Más">+</button>
+            </div>
+            <button class="add-cart-btn" id="addCartBtn" onclick="addCurrentToCart()">Agregar al pedido</button>
+          </div>
+          <div class="mayorista-notice-box" id="mayoristaModalNotice" style="display:none">Pendiente verificar unidades disponibles con tu asesora.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX FICHA TÉCNICA -->
+<div class="ficha-overlay" id="fichaOverlay" onclick="closeFicha(event)">
+  <button class="ficha-close" onclick="closeFicha()" title="Cerrar">✕</button>
+  <img id="fichaFullImg" src="" alt="Ficha técnica">
+</div>
+
+<!-- CARRITO — DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Tu pedido">
+  <div class="cart-head">
+    <h3>Tu pedido</h3>
+    <button onclick="closeCart()" title="Cerrar">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Resumen</span>
+      <span class="cart-total" id="cartTotal"></span>
+    </div>
+    <div class="cart-total-note" id="cartTotalNote"></div>
+    <div class="mayorista-notice-box" id="mayoristaCartNotice" style="display:none">Pendiente verificar unidades disponibles con tu asesora.</div>
+    <button class="cart-send-btn" onclick="abrirFormularioCliente()">Enviar pedido por WhatsApp</button>
+    <button class="cart-clear-btn" onclick="clearCart()">Vaciar pedido</button>
+  </div>
+</aside>
+
+<!-- CARRITO — MENÚ DE DESTINOS WHATSAPP -->
+<div class="dest-overlay" id="destOverlay" onclick="closeDestinosIfOutside(event)">
+  <div class="dest-modal">
+    <h3>Enviar pedido</h3>
+    <p id="destDesc">Elige a quién enviar tu pedido por WhatsApp</p>
+    <div class="dest-list" id="destList"></div>
+    <button class="pwd-cancel" onclick="closeDestinos()">Cancelar</button>
+  </div>
+</div>
+
+<!-- CARRITO — FORMULARIO DATOS DEL CLIENTE (previo a envío WhatsApp) -->
+<div class="dest-overlay" id="clienteOverlay" onclick="closeClienteFormIfOutside(event)">
+  <div class="dest-modal cliente-modal">
+    <h3>Datos para tu pedido</h3>
+    <p>Completa tus datos antes de enviar el pedido por WhatsApp</p>
+    <div class="cliente-form">
+      <div class="cliente-field">
+        <div class="order-note-label">Cédula</div>
+        <input type="text" class="order-note" id="clienteCedula" maxlength="20" placeholder="Ej. 1017123456">
+        <div class="cliente-error-msg" id="errClienteCedula"></div>
+      </div>
+      <div class="cliente-field">
+        <div class="order-note-label">Nombre completo</div>
+        <input type="text" class="order-note" id="clienteNombre" maxlength="80" placeholder="Ej. Laura Gómez Ríos">
+        <div class="cliente-error-msg" id="errClienteNombre"></div>
+      </div>
+      <div class="cliente-field">
+        <div class="order-note-label">Dirección</div>
+        <input type="text" class="order-note" id="clienteDireccion" maxlength="120" placeholder="Ej. Cra 45 #23-10, apto 302">
+        <div class="cliente-error-msg" id="errClienteDireccion"></div>
+      </div>
+      <div class="cliente-field">
+        <div class="order-note-label">Ciudad</div>
+        <input type="text" class="order-note" id="clienteCiudad" maxlength="60" placeholder="Ej. Medellín">
+        <div class="cliente-error-msg" id="errClienteCiudad"></div>
+      </div>
+      <div class="cliente-field">
+        <div class="order-note-label">Teléfono de contacto</div>
+        <input type="text" class="order-note" id="clienteTelefono" maxlength="20" placeholder="Ej. 3001234567">
+        <div class="cliente-error-msg" id="errClienteTelefono"></div>
+      </div>
+      <div class="cliente-field" id="clienteAgenteRetenedorField" style="display:none">
+        <div class="order-note-label">¿Eres agente retenedor en la fuente?</div>
+        <div class="agente-retenedor-toggle">
+          <button type="button" class="agente-ret-btn" id="btnAgenteRetSi" onclick="setAgenteRetenedor('si')">Sí</button>
+          <button type="button" class="agente-ret-btn" id="btnAgenteRetNo" onclick="setAgenteRetenedor('no')">No</button>
+        </div>
+        <div class="cliente-error-msg" id="errClienteAgenteRetenedor"></div>
+      </div>
+    </div>
+    <div class="cliente-error-general" id="clienteErrorGeneral"></div>
+    <button class="pwd-submit" onclick="validarYContinuarFormularioCliente()">Continuar</button>
+    <button class="pwd-cancel" onclick="closeClienteForm()">Cancelar</button>
+  </div>
+</div>
+
+<script>
+const RUTINAS = ['Primera Limpieza','Segunda Limpieza','Tónico','Esencia','Sérum','Hidratación','Contorno de Ojos','Mascarillas','Protección Solar','Maquillaje','Labial','Capilar','Sets y Kits','Accesorios','Vitaminas','Parches','Exfoliante','Bruma'];
+
+// ── PASOS DE LA RUTINA COREANA ─────────────────────────────────
+// Agrupan las 18 categorías de RUTINAS en 5 macro-pasos para que el
+// usuario elija primero "en qué momento de la rutina estoy".
+const PASOS = [
+  { id:'limpieza',    nombre:'Limpieza',            paso:'Paso 1', cats:['Primera Limpieza','Segunda Limpieza','Exfoliante'] },
+  { id:'tonicos',     nombre:'Tónicos',             paso:'Paso 2', cats:['Tónico','Esencia','Bruma'] },
+  { id:'tratamiento', nombre:'Tratamiento',         paso:'Paso 3', cats:['Sérum','Contorno de Ojos','Vitaminas'] },
+  { id:'hidratar',    nombre:'Hidratar y Proteger', paso:'Paso 4', cats:['Hidratación','Protección Solar','Mascarillas','Parches'] },
+  { id:'extra',       nombre:'Cuidado Extra',       paso:'Paso 5', cats:['Maquillaje','Labial','Capilar','Sets y Kits','Accesorios'] }
+];
+// Cualquier categoría del JSON que no esté en ningún paso cae aquí
+function pasoDeCategoria(cat) {
+  const ps = PASOS.find(x => x.cats.includes(cat));
+  return ps ? ps.id : null;
+}
+const SVG = {
+  todo:        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M18 15l.8 2L21 17.8l-2.2.8L18 21l-.8-2.4-2.2-.8 2.2-.8z"/></svg>',
+  limpieza:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5.5 6.1 5.5 9.8A5.5 5.5 0 0 1 12 18.5a5.5 5.5 0 0 1-5.5-5.7C6.5 9.1 12 3 12 3z"/></svg>',
+  tonicos:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5c2.2-2 4.3-2 6.5 0s4.3 2 6.5 0 4.3-2 5-1.3"/><path d="M3 13c2.2-2 4.3-2 6.5 0s4.3 2 6.5 0 4.3-2 5-1.3"/><path d="M3 17.5c2.2-2 4.3-2 6.5 0s4.3 2 6.5 0 4.3-2 5-1.3"/></svg>',
+  tratamiento: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5L5 13.5h6l-.5 8L19 10.5h-6z"/></svg>',
+  hidratar:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7 2.6v6c0 4.4-3 8.2-7 9.8-4-1.6-7-5.4-7-9.8v-6z"/></svg>',
+  extra:       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S3.8 15.4 3.8 9.9A4.1 4.1 0 0 1 12 7.6a4.1 4.1 0 0 1 8.2 2.3c0 5.5-8.2 10.6-8.2 10.6z"/></svg>'
+};
+// Descripciones de tipo de piel. Se emparejan por palabra clave para no
+// depender del texto exacto que venga en el JSON.
+const PIEL_DESC = [
+  { k:['contorno','ojos','ojera'],                        d:'Ojeras, bolsas y líneas finas de la zona más delicada' },
+  { k:['solar','spf','sol'],                              d:'Filtros diarios que previenen manchas y envejecimiento' },
+  { k:['capilar','cabello','cuero'],                      d:'Cuidado del cabello y el cuero cabelludo' },
+  { k:['acn','brote','imperfec'],                         d:'Controla brotes e imperfecciones sin resecar' },
+  { k:['mancha','hiperpigment','pigment'],                d:'Unifica el tono y aclara marcas de sol, acné o edad' },
+  { k:['anti-edad','antiedad','anti edad','madura','edad'], d:'Enfocada en firmeza, elasticidad, arrugas y manchas de la edad' },
+  { k:['brillo','luminosid','glow'],                      d:'Devuelve el glow a la piel apagada o sin vida' },
+  { k:['sensible','calmante','rojec','reactiv'],          d:'Fórmulas hipoalergénicas y calmantes que reducen el ardor' },
+  { k:['hidrataci','deshidratada','seca'],                d:'Para piel con tirantez o sensación de falta de agua' },
+  { k:['grasa','poro'],                                   d:'Texturas ligeras en gel sin sensación pegajosa' },
+  { k:['mixta'],                                          d:'Zona T brillante y mejillas normales o secas' },
+  { k:['universal','todo tipo'],                          d:'Apto para todo tipo de piel' }
+];
+function descPiel(t) {
+  const n = (t||'').toLowerCase();
+  const m = PIEL_DESC.find(x => x.k.some(k => n.includes(k)));
+  return m ? m.d : '';
+}
+
+// "Más vendidos" ahora se controla desde el campo mas_vendido: true en el JSON
+function isMasVendido(p) { return p.mas_vendido === true; }
+
+const PAGE_SIZE   = 48;   // tarjetas por lote en scroll infinito
+const EAGER_COUNT = 12;   // primeras N imágenes cargan de inmediato (sin lazy)
+
+let allProducts = [];
+let view = 'rutina';
+// Filtros combinables: cada dimensión es independiente y se aplican en AND.
+let fPaso      = null;   // id de paso de rutina
+let fCategoria = null;   // categoría exacta
+let fMarca     = null;
+let fPiel      = null;
+let marcasExpandidas = false;
+function hasFilters() { return !!(fPaso || fCategoria || fMarca || fPiel); }
+function clearAllFilters() { fPaso = fCategoria = fMarca = fPiel = null; render(); }
+let searchText = '';
+let showNuevo = false;
+let showPreventa = false;
+
+// Estado del scroll infinito
+let renderList   = [];
+let renderOffset = 0;
+let eagerCount   = 0;
+
+// IntersectionObservers
+let sentinelObserver = null;
+let imgObserver      = null;
+
+// ── SIN PRECIOS ───────────────────────────────────────────────
+// Catálogo de preventa: nunca muestra precios. priceMode se queda fijo
+// en 'publico' para que tarjetas, modal y carrito oculten los precios.
+const priceMode = 'publico';
+let detalProducts = [];
+let mayoristasProducts = [];
+function fmtPrice(precio) { return 'Precio a confirmar'; }
+const IVA_FACTOR = 1.19, RETENCION_TARIFA = 0.025, RETENCION_BASE_MINIMA = 524000;
+
+// Un solo listener para Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const fichaOv = document.getElementById('fichaOverlay');
+    if (fichaOv && fichaOv.classList.contains('open')) { closeFicha(); return; }
+    const destOv = document.getElementById('destOverlay');
+    if (destOv && destOv.classList.contains('open')) { closeDestinos(); return; }
+    const drawer = document.getElementById('cartDrawer');
+    if (drawer && drawer.classList.contains('open')) { closeCart(); return; }
+    closeModal();
+  }
+});
+
+
+// ── LOAD ───────────────────────────────────────────────────────
+fetch('skink_preventa_productos.json')
+  .then(r => r.json())
+  .then(data => {
+    allProducts   = data;
+    detalProducts = data;
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('catalogContent').style.display = 'block';
+    updateStats(); render();
+  })
+  .catch(() => {
+    document.getElementById('loading').innerHTML = '<p style="color:#c0392b">Error cargando skink_preventa_productos.json.</p>';
+  });
+
+// ── FILTERS ────────────────────────────────────────────────────
+function setView(v) {
+  // Los filtros NO se limpian al cambiar de pestaña: son combinables
+  // y el usuario espera que su selección persista.
+  view = v;
+  document.getElementById('btnRutina').classList.toggle('active', v==='rutina');
+  document.getElementById('btnMarca').classList.toggle('active', v==='marca');
+  document.getElementById('btnPiel').classList.toggle('active', v==='tipo_piel');
+  render();
+}
+// Normaliza referencias para que "skin1004-13", "skin1004 14" y "skink100413"
+// se traten como equivalentes al buscar (quita espacios, guiones y guiones bajos)
+function normalizeRef(str) {
+  return (str || '').toLowerCase().replace(/[\s\-_]+/g, '');
+}
+// Normaliza nombre/marca para buscar: quita acentos, trata guion/guion_bajo
+// como espacio y colapsa espacios repetidos, para que "Hyalu Cica" encuentre
+// "Hyalu-Cica" y "Cica Cooling" encuentre "Cooling Cica".
+function normalizeTexto(str) {
+  return (str || '')
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+// Coincide si cada palabra escrita aparece en el nombre+marca del producto,
+// sin importar el orden en que se escribieron.
+function coincideBusqueda(p, texto) {
+  const palabras = normalizeTexto(texto).split(' ').filter(Boolean);
+  const campo = normalizeTexto(p.nombre + ' ' + p.marca);
+  return palabras.every(palabra => campo.includes(palabra));
+}
+
+function onSearch(val) {
+  searchText = val.toLowerCase().trim();
+  document.getElementById('searchClear').style.display = searchText ? 'block' : 'none';
+  document.getElementById('searchIcon').style.display  = searchText ? 'none'  : 'block';
+  render();
+}
+function clearSearch() { document.getElementById('searchInput').value=''; onSearch(''); }
+
+// ── FILTROS COLAPSABLES (móvil) ────────────────────────────────
+function toggleFilters() {
+  document.querySelector('.filters-bar').classList.toggle('filters-open');
+}
+// Tras elegir un paso en móvil, desplaza la subfila recién aparecida
+// hasta que quede visible, sin cerrar el panel.
+function scrollSubfiltros() {
+  if (window.innerWidth > 600) return;
+  requestAnimationFrame(() => {
+    const w = document.querySelector('.subfilter-wrap');
+    if (w) w.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+}
+function collapseFiltersMobile() {
+  if (window.innerWidth <= 600) {
+    document.querySelector('.filters-bar').classList.remove('filters-open');
+  }
+}
+function toggleNuevo() {
+  showNuevo = !showNuevo;
+  document.getElementById('nuevoBtn').classList.toggle('active', showNuevo);
+  render();
+}
+function togglePreventa() {
+  showPreventa = !showPreventa;
+  document.getElementById('preventaBtn').classList.toggle('active', showPreventa);
+  render();
+}
+
+// Aplica todos los filtros activos. `excluir` permite ignorar una dimensión
+// ('rutina' | 'marca' | 'piel') para calcular contadores honestos: el número
+// que ve el usuario junto a "COSRX" ya tiene en cuenta los demás filtros.
+function baseFiltered(excluir) {
+  const showAgot = document.getElementById('toggleAgotados').checked;
+  return allProducts.filter(p => {
+    if (!showAgot && p.agotado) return false;
+    if (showNuevo && !p.nuevo) return false;
+    if (showPreventa && !p.preventa) return false;
+    if (searchText) {
+      const searchNorm = normalizeRef(searchText);
+      if (!( coincideBusqueda(p, searchText)
+          || normalizeRef(p.referencia).includes(searchNorm))) return false;
+    }
+    if (excluir !== 'rutina') {
+      if (fPaso) {
+        const ps = PASOS.find(x => x.id === fPaso);
+        if (ps && !ps.cats.includes(p.categoria)) return false;
+      }
+      if (fCategoria && p.categoria !== fCategoria) return false;
+    }
+    if (excluir !== 'marca' && fMarca && p.marca !== fMarca) return false;
+    if (excluir !== 'piel'  && fPiel  && !(p.tipos_piel||[]).includes(fPiel)) return false;
+    return true;
+  });
+}
+function filterProducts() { return baseFiltered(null); }
+
+function sortProducts(arr) {
+  const v = document.getElementById('sortSelect').value;
+  const s = [...arr];
+  const num = p => p.precio==='pendiente' ? (v==='price-asc'?Infinity:-Infinity) : p.precio;
+  if (v==='price-asc')  s.sort((a,b)=>num(a)-num(b));
+  if (v==='price-desc') s.sort((a,b)=>num(b)-num(a));
+  if (v==='name-asc')   s.sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+  if (v==='brand-asc')  s.sort((a,b)=>a.marca.localeCompare(b.marca,'es')||a.nombre.localeCompare(b.nombre,'es'));
+  // Los agotados siempre van al final, conservando el orden anterior entre ellos
+  // (Array.sort es estable). Al aplicarse despues de filtrar, funciona dentro de
+  // cada filtro y de cada grupo de la vista (rutina, marca, tipo de piel).
+  s.sort((a,b) => (a.agotado?1:0) - (b.agotado?1:0));
+  return s;
+}
+
+// ── PANEL DE FILTROS ───────────────────────────────────────────
+// Sustituye la antigua fila única de pills por un panel que cambia según
+// la pestaña activa: tarjetas de paso (rutina), chips (marca) o tarjetas
+// descriptivas (tipo de piel). Cada dimensión se puede combinar.
+function buildPills() {
+  buildFilterPanel();
+  buildActiveChips();
+}
+
+function el(tag, cls, html) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html != null) e.innerHTML = html;
+  return e;
+}
+function panelHead(title, hint, count) {
+  return '<div class="filter-panel-head">'
+       +   '<div class="filter-panel-title">' + title
+       +     (hint ? '<span class="fp-hint">' + hint + '</span>' : '') + '</div>'
+       +   (count ? '<div class="filter-panel-count">' + count + '</div>' : '')
+       + '</div>';
+}
+
+function buildFilterPanel() {
+  const panel = document.getElementById('filterPanel');
+  panel.innerHTML = '';
+  if (view === 'rutina')         buildPanelRutina(panel);
+  else if (view === 'marca')     buildPanelMarca(panel);
+  else                           buildPanelPiel(panel);
+}
+
+// ── Vista POR RUTINA: 5 pasos + sub-fila de categorías ──
+function buildPanelRutina(panel) {
+  const base = baseFiltered('rutina');          // ignora paso/categoría
+  const cnt  = c => base.filter(p => p.categoria === c).length;
+
+  panel.insertAdjacentHTML('beforeend', panelHead(
+    'Pasos de la rutina coreana',
+    'selecciona un paso para enfocar tu búsqueda'
+  ));
+
+  const grid = el('div', 'step-grid');
+  const mkCard = (icon, nombre, sub, count, active, onclick, disabled) => {
+    const b = el('button', 'step-card' + (active ? ' active' : ''),
+        '<span class="sc-count">' + count + '</span>'
+      + '<span class="sc-icon">' + icon + '</span>'
+      + '<span><span class="sc-name">' + nombre + '</span>'
+      + '<span class="sc-sub" style="display:block">' + sub + '</span></span>');
+    if (disabled) b.disabled = true; else b.onclick = onclick;
+    grid.appendChild(b);
+  };
+
+  mkCard(SVG.todo, 'Ver Todo', 'Catálogo', base.length,
+         !fPaso && !fCategoria,
+         () => { fPaso = null; fCategoria = null; render(); });
+
+  PASOS.forEach(ps => {
+    const n = ps.cats.reduce((a, c) => a + cnt(c), 0);
+    mkCard(SVG[ps.id], ps.nombre, ps.paso, n, fPaso === ps.id,
+           // No cerramos el desplegable: el usuario necesita ver las
+           // subcategorías que acaban de aparecer debajo.
+           () => { fPaso = ps.id; fCategoria = null; render(); scrollSubfiltros(); },
+           n === 0);
+  });
+  panel.appendChild(grid);
+
+  // Sub-fila: solo aparece cuando ya se eligió un paso. Sin paso elegido
+  // no se muestran las 18 categorías: evita la redundancia de ver
+  // "Limpieza" arriba y "Primera/Segunda Limpieza" abajo al mismo tiempo.
+  const psAct = fPaso ? PASOS.find(x => x.id === fPaso) : null;
+  let cats, titulo;
+  if (psAct) {
+    cats = psAct.cats.filter(c => cnt(c) > 0);
+    titulo = psAct.nombre;
+  } else {
+    // Sin paso elegido NO listamos las 18 categorías (sería redundante con
+    // las tarjetas de arriba). Única excepción: categorías del JSON que no
+    // pertenezcan a ningún paso, que si no quedarían inalcanzables.
+    cats = [...new Set(base.map(p => p.categoria))]
+             .filter(c => c && !pasoDeCategoria(c) && cnt(c) > 0)
+             .sort((a, b) => a.localeCompare(b, 'es'));
+    titulo = 'Otras categorías';
+  }
+  if (!cats.length) return;
+
+  const wrap = el('div', 'subfilter-wrap');
+  wrap.insertAdjacentHTML('beforeend', panelHead(
+    titulo, '',
+    cats.length + ' categoría' + (cats.length !== 1 ? 's' : '') + ' en esta sección'
+  ));
+  const row = el('div', 'pills-row');
+  const all = el('button', 'pill' + (!fCategoria ? ' active' : ''),
+                 (fCategoria ? '' : '✓ ') + (psAct ? 'Todo en ' + psAct.nombre : 'Todas'));
+  all.onclick = () => { fCategoria = null; render(); collapseFiltersMobile(); };
+  row.appendChild(all);
+  cats.forEach(c => {
+    const b = el('button', 'pill' + (fCategoria === c ? ' active' : ''), c + ' <b>' + cnt(c) + '</b>');
+    b.onclick = () => {
+      fCategoria = (fCategoria === c) ? null : c;
+      if (fCategoria) fPaso = pasoDeCategoria(fCategoria);
+      render(); collapseFiltersMobile();
+    };
+    row.appendChild(b);
+  });
+  wrap.appendChild(row);
+  panel.appendChild(wrap);
+}
+
+// ── Vista POR MARCA ──
+const MARCAS_VISIBLES = 16;
+function buildPanelMarca(panel) {
+  const base   = baseFiltered('marca');
+  const marcas = [...new Set(base.map(p => p.marca))].filter(Boolean);
+  const cnt    = m => base.filter(p => p.marca === m).length;
+  marcas.sort((a, b) => cnt(b) - cnt(a) || a.localeCompare(b, 'es'));
+
+  panel.insertAdjacentHTML('beforeend', panelHead(
+    'Filtrar por marca coreana', 'selecciona tu marca favorita para ver sus productos'
+  ));
+
+  const row  = el('div', 'brand-chips');
+  const todas = el('button', 'pill' + (!fMarca ? ' active' : ''),
+                   (fMarca ? '' : '✓ ') + 'Todas las ' + marcas.length + ' marcas');
+  todas.onclick = () => { fMarca = null; render(); collapseFiltersMobile(); };
+  row.appendChild(todas);
+
+  const lista = (marcasExpandidas || fMarca) ? marcas : marcas.slice(0, MARCAS_VISIBLES);
+  lista.forEach(m => {
+    const b = el('button', 'pill' + (fMarca === m ? ' active' : ''), m + ' <b>' + cnt(m) + '</b>');
+    b.onclick = () => { fMarca = (fMarca === m) ? null : m; render(); collapseFiltersMobile(); };
+    row.appendChild(b);
+  });
+  panel.appendChild(row);
+
+  if (!fMarca && marcas.length > MARCAS_VISIBLES) {
+    const more = el('button', 'show-more-btn',
+      marcasExpandidas ? 'Ver menos marcas' : 'Ver las ' + (marcas.length - MARCAS_VISIBLES) + ' marcas restantes');
+    more.onclick = () => { marcasExpandidas = !marcasExpandidas; buildFilterPanel(); };
+    panel.appendChild(more);
+  }
+}
+
+// ── Vista POR TIPO DE PIEL ──
+function buildPanelPiel(panel) {
+  const base = baseFiltered('piel');
+  const cont = {};
+  base.forEach(p => (p.tipos_piel || []).forEach(t => { cont[t] = (cont[t] || 0) + 1; }));
+  const tipos = Object.keys(cont).sort((a, b) => cont[b] - cont[a]);
+
+  panel.insertAdjacentHTML('beforeend', panelHead(
+    '¿Para qué tipo de piel necesitas los productos?',
+    'elige una necesidad y verás solo lo indicado para ella'
+  ));
+
+  if (!tipos.length) {
+    panel.insertAdjacentHTML('beforeend',
+      '<div class="filter-panel-count">No hay tipos de piel disponibles con los filtros actuales.</div>');
+    return;
+  }
+
+  const grid = el('div', 'piel-grid');
+  tipos.forEach(t => {
+    const d = descPiel(t);
+    const b = el('button', 'piel-card' + (fPiel === t ? ' active' : ''),
+        '<span class="pc-count">' + cont[t] + '</span>'
+      + '<div class="pc-name">' + t + '</div>'
+      + (d ? '<div class="pc-desc">' + d + '</div>' : ''));
+    b.onclick = () => { fPiel = (fPiel === t) ? null : t; render(); collapseFiltersMobile(); };
+    grid.appendChild(b);
+  });
+  panel.appendChild(grid);
+}
+
+// ── Chips de filtros activos (transversales a las 3 pestañas) ──
+function buildActiveChips() {
+  const box = document.getElementById('activeChips');
+  box.innerHTML = '';
+  const activos = [];
+  if (fCategoria)          activos.push([fCategoria,                                  () => { fCategoria = null; }]);
+  else if (fPaso)          activos.push([(PASOS.find(x => x.id === fPaso) || {}).nombre, () => { fPaso = null; }]);
+  if (fMarca)              activos.push([fMarca,                                      () => { fMarca = null; }]);
+  if (fPiel)               activos.push([fPiel,                                       () => { fPiel = null; }]);
+  if (!activos.length) return;
+
+  box.insertAdjacentHTML('beforeend', '<span class="ac-label">Filtros activos</span>');
+  activos.forEach(([lbl, clear]) => {
+    const b = el('button', 'fchip', lbl + ' <span class="fchip-x">✕</span>');
+    b.title = 'Quitar este filtro';
+    b.onclick = () => { clear(); if (!fCategoria && !fPaso) fPaso = null; render(); };
+    box.appendChild(b);
+  });
+  if (activos.length > 1) {
+    const c = el('button', 'fchip-clear', 'Limpiar todo');
+    c.onclick = clearAllFilters;
+    box.appendChild(c);
+  }
+}
+
+// ── CARD ───────────────────────────────────────────────────────
+// GIF 1×1 transparente — placeholder para imágenes lazy
+const LAZY_PH = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
+function cardHTML(p, eager) {
+  const mainImg    = p.colores ? p.colores[0] : p.imagen;
+  const priceClass = p.precio==='pendiente' ? 'card-price pendiente' : 'card-price';
+  const priceHTML  = priceMode === 'publico' ? '' : '<div class="'+priceClass+'">'+fmtPrice(p.precio)+'</div>';
+  let badges = '';
+  if (isMasVendido(p)) badges += '<span class="badge badge-vendidos">Más vendidos</span>';
+  if (p.agotado) badges += '<span class="badge badge-agotado">Agotado</span>';
+  if (p.nuevo)   badges += '<span class="badge badge-nuevo">Nuevo</span>';
+  if (p.preventa) badges += '<span class="badge badge-preventa">Preventa</span>';
+
+  // Miniaturas sobre la foto: fotos adicionales + ficha tecnica
+  const hasFichaCard = !!(p.ficha && p.ficha.trim && p.ficha.trim());
+  const hasVideoCard = !!(p.video && p.video.trim && p.video.trim());
+  const extraImgs = (p.colores && p.colores.length > 1) ? p.colores : [];
+  let thumbs = '';
+  if (extraImgs.length > 1 || hasFichaCard || hasVideoCard) {
+    const MAX_TH = 4 - (hasFichaCard ? 1 : 0) - (hasVideoCard ? 1 : 0);
+    const shown  = extraImgs.slice(0, MAX_TH);
+    const rest   = extraImgs.length - shown.length;
+    let items = shown.map(src =>
+      '<div class="card-thumb"><img src="'+src+'" onerror="this.parentElement.style.display=\'none\'"></div>'
+    ).join('');
+    if (rest > 0) items += '<div class="card-thumb is-more">+'+rest+'</div>';
+    if (hasFichaCard) items += '<div class="card-thumb is-ficha" title="Ficha tecnica">'
+      + '<img src="'+p.ficha+'" onerror="this.parentElement.style.display=\'none\'"></div>';
+    if (hasVideoCard) items += '<div class="card-thumb is-video" title="Tiene video">\u25B6</div>';
+    thumbs = '<div class="card-thumbs">'+items+'</div>';
+  }
+  const dots = '';
+
+  // Imagen principal: eager (src directo) o lazy (data-src + GIF placeholder)
+  const imgAttr = (eager || !mainImg)
+    ? 'src="'+(mainImg||'')+'"'
+    : 'data-src="'+mainImg+'" src="'+LAZY_PH+'"';
+
+  const idx = allProducts.indexOf(p);
+  return '<div class="card'+(p.agotado?' agotado':'')+'" onclick="openModal('+idx+')">'
+    + '<div class="card-top-badges">'+badges+'</div>'
+    + '<div class="card-img-wrap">'
+    +   '<img '+imgAttr+' alt="'+p.referencia+'"'
+    +   ' onerror="this.outerHTML=\'<div class=\\\'card-img-placeholder\\\'>'+p.referencia+'</div>\'">'
+    +   thumbs
+    + '</div>'
+    + dots
+    + '<div class="card-body">'
+    +   '<div class="card-marca">'+p.marca+'</div>'
+    +   '<div class="card-name">'+p.nombre+'</div>'
+    +   '<div class="card-ref">Ref: '+p.referencia+'</div>'
+    +   '<div class="card-footer">'
+    +     priceHTML
+    +     (p.agotado ? '<span class="card-hint" style="display:inline">Ver más →</span>' : '<button class="card-add-btn" onclick="quickAddToCart(event, '+idx+')"><span class="card-add-ico">\uD83D\uDECD\uFE0F</span>Agregar al carrito</button>')
+    +   '</div>'
+    + '</div></div>';
+}
+
+// ── MODAL ──────────────────────────────────────────────────────
+let currentProduct = null;
+let modalSlide = 0;        // índice dentro de modalSlides
+let modalColorSrc = null;  // foto activa cuando hay variantes de color
+let modalSlides = [];      // [fotos del producto..., ficha técnica, video]
+let modalHasFicha = false;
+let modalFichaIndex = -1;  // la ficha va después de las fotos
+let modalHasVideo = false; // el video va siempre al final, después de la ficha
+let modalVideoIndex = -1;
+
+// ── AUTOPLAY DEL CARRUSEL DEL MODAL ────────────────────────────
+// Al abrir un producto con varias slides, el carrusel avanza solo:
+// fotos 1s, ficha técnica 5s, y se detiene en la última slide.
+// Cualquier interacción del usuario (flechas, dots, pestañas, zoom, video) lo cancela.
+const AUTO_FOTO_MS  = 1000;
+const AUTO_FICHA_MS = 5000;
+let modalAutoTimer = null;
+let modalAutoOn = false;
+
+function stopModalAuto() {
+  if (modalAutoTimer) { clearTimeout(modalAutoTimer); modalAutoTimer = null; }
+  modalAutoOn = false;
+}
+function scheduleModalAuto() {
+  if (modalAutoTimer) { clearTimeout(modalAutoTimer); modalAutoTimer = null; }
+  if (!modalAutoOn || modalSlides.length < 2) return;
+  if (modalSlide >= modalSlides.length - 1) { modalAutoOn = false; return; }  // última slide: se queda ahí
+  const delay = (modalHasFicha && modalSlide === modalFichaIndex) ? AUTO_FICHA_MS : AUTO_FOTO_MS;
+  modalAutoTimer = setTimeout(function () {
+    modalAutoTimer = null;
+    if (!modalAutoOn) return;
+    modalGoSlide(modalSlide + 1, true);
+  }, delay);
+}
+
+// ── Bloqueo de scroll sin salto de layout ──
+var _scrollLockCount = 0;
+var _touchBlocker = null;
+
+// En tactil (Chrome Android sobre todo) poner overflow:hidden en el body
+// vuelve la pagina no desplazable, y el navegador responde desplegando su
+// barra de direcciones. Eso cambia el alto del viewport y toda la pagina se
+// reacomoda: ese es el parpadeo al abrir un producto. Safari en iOS no lo
+// hace, por eso alli no se veia. Solucion: en tactil se bloquea el gesto de
+// desplazamiento, no el scroll del documento.
+function _isTouchUI() {
+  return window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+}
+// ¿El elemento (o alguno de sus padres) tiene scroll propio? Si lo tiene,
+// el gesto se deja pasar para que la ficha o el carrito sigan desplazandose.
+function _hasOwnScroll(el) {
+  var st = window.getComputedStyle(el);
+  var o = st.overflowY;
+  return (o === 'auto' || o === 'scroll') && el.scrollHeight > el.clientHeight + 1;
+}
+
+function lockBodyScroll() {
+  _scrollLockCount++;
+  if (_scrollLockCount > 1) return;
+
+  if (_isTouchUI()) {
+    _touchBlocker = function (e) {
+      if (e.touches && e.touches.length > 1) return;   // pellizco para ampliar
+      var n = e.target;
+      while (n && n.nodeType === 1 && n !== document.body) {
+        if (_hasOwnScroll(n)) return;
+        n = n.parentElement;
+      }
+      if (e.cancelable) e.preventDefault();
+    };
+    document.addEventListener('touchmove', _touchBlocker, { passive: false });
+    return;
+  }
+
+  var gutterOK = window.CSS && CSS.supports && CSS.supports('scrollbar-gutter', 'stable');
+  if (!gutterOK) {
+    var sb = window.innerWidth - document.documentElement.clientWidth;
+    if (sb > 0) document.body.style.paddingRight = sb + 'px';
+  }
+  document.body.style.overflow = 'hidden';
+}
+
+function unlockBodyScroll() {
+  _scrollLockCount = Math.max(0, _scrollLockCount - 1);
+  if (_scrollLockCount > 0) return;
+  if (_touchBlocker) {
+    document.removeEventListener('touchmove', _touchBlocker, { passive: false });
+    _touchBlocker = null;
+  }
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+// ── Precarga de imagenes del producto ──
+// Evita que el modal aparezca con el recuadro de foto vacio (parpadeo)
+// y que el carrusel muestre un blanco al cambiar de foto.
+var modalImgToken = 0;
+function preloadModalSlides() {
+  for (var i = 0; i < modalSlides.length; i++) {
+    if (i === modalVideoIndex) continue;
+    var src = modalSlides[i];
+    if (src) { var im = new Image(); im.src = src; }
+  }
+}
+// Cambia la foto solo cuando la nueva ya esta cargada.
+function setSlideImage(img, src) {
+  var pre = new Image();
+  pre.src = src;
+  if (pre.complete) { img.src = src; return; }
+  var token = ++modalImgToken;
+  pre.onload = pre.onerror = function () { if (token === modalImgToken) img.src = src; };
+}
+
+function openModal(idx) {
+  const p = allProducts[idx];
+  currentProduct = p;
+  modalSlide = 0;
+  modalHasFicha = !!(p.ficha && p.ficha.trim && p.ficha.trim());
+  modalHasVideo = !!(p.video && p.video.trim && p.video.trim());
+  modalSlides = (p.colores && p.colores.length) ? p.colores.slice() : [p.imagen];
+  modalVideoIndex = -1;
+  modalFichaIndex = -1;
+  if (modalHasFicha) { modalFichaIndex = modalSlides.length; modalSlides.push(p.ficha); }
+  if (modalHasVideo) { modalVideoIndex = modalSlides.length; modalSlides.push(p.video); }
+  stopModalVideo();
+  modalColorSrc = modalSlides[0];
+
+  // Image (slide inicial: foto del producto)
+  const modalImg = document.getElementById('modalImg');
+  modalImg.style.display = '';   // por si el producto anterior terminó en la slide de video
+  modalImg.classList.remove('is-ficha');
+  // La foto del producto se amplía igual que la ficha técnica
+  modalImg.classList.add('is-zoomable');
+  modalImg.onclick = function(){ openFicha(modalImg.src, p.nombre); };
+  modalImg.src = modalColorSrc;
+  modalImg.alt = p.nombre;
+  modalImg.onerror = function() {
+    document.getElementById('fichaZoomHint').style.display = 'none';
+    this.parentElement.innerHTML = '<div class="modal-img-placeholder">'+p.referencia+'</div>';
+  };
+
+  // Carrusel foto / ficha técnica
+  const hasFicha = modalHasFicha;
+  const arrowPrev = document.getElementById('modalArrowPrev');
+  const arrowNext = document.getElementById('modalArrowNext');
+  const tabsEl    = document.getElementById('modalSlideTabs');
+  document.getElementById('fichaZoomHint').style.display = 'block';
+  document.getElementById('modalImgSide').classList.remove('showing-ficha');
+  // Flechas: hay algo que navegar si existe más de una slide
+  const multi = modalSlides.length > 1;
+  arrowPrev.style.display = multi ? 'flex' : 'none';
+  arrowNext.style.display = multi ? 'flex' : 'none';
+  if (hasFicha || modalHasVideo) {
+    tabsEl.style.display = 'flex';
+    let tabsHtml = '<div class="modal-slide-tab active" onclick="modalGoSlide(0)">Foto</div>';
+    if (hasFicha) tabsHtml += '<div class="modal-slide-tab" onclick="modalGoSlide(' + modalFichaIndex + ')">Ficha técnica</div>';
+    if (modalHasVideo) tabsHtml += '<div class="modal-slide-tab" onclick="modalGoSlide(' + modalVideoIndex + ')">Video</div>';
+    tabsEl.innerHTML = tabsHtml;
+  } else {
+    tabsEl.style.display = 'none';
+    tabsEl.innerHTML = '';
+  }
+
+  // Color dots
+  const dotsEl = document.getElementById('modalDots');
+  const fotoCount = modalSlides.length - (modalHasFicha ? 1 : 0) - (modalHasVideo ? 1 : 0);
+  if (fotoCount > 1) {
+    dotsEl.style.display = 'flex';
+    let dotsHtml = '';
+    for (let i = 0; i < fotoCount; i++) {
+      dotsHtml += '<button class="modal-dot' + (i===0?' active':'') + '" aria-label="Foto ' + (i+1) + '" onclick="modalGoSlide(' + i + ')"></button>';
+    }
+    if (modalHasFicha) dotsHtml += '<button class="modal-dot is-ficha-dot" aria-label="Ficha técnica" onclick="modalGoSlide(' + modalFichaIndex + ')"></button>';
+    if (modalHasVideo) dotsHtml += '<button class="modal-dot is-ficha-dot" aria-label="Video" onclick="modalGoSlide(' + modalVideoIndex + ')"></button>';
+    dotsEl.innerHTML = dotsHtml;
+  } else {
+    dotsEl.style.display = 'none';
+    dotsEl.innerHTML = '';
+  }
+
+  // Badges
+  let badges = '';
+  if (isMasVendido(p)) badges += '<span class="badge badge-vendidos">Más vendidos</span>';
+  if (p.agotado) badges += '<span class="badge badge-agotado">Agotado</span>';
+  if (p.nuevo)   badges += '<span class="badge badge-nuevo">Nuevo</span>';
+  if (p.preventa) badges += '<span class="badge badge-preventa">Preventa</span>';
+  document.getElementById('modalBadges').innerHTML = badges;
+
+  // Text fields
+  document.getElementById('modalMarca').textContent  = p.marca;
+  document.getElementById('modalNombre').textContent = p.nombre;
+  document.getElementById('modalRef').textContent    = 'Ref: ' + p.referencia;
+
+  // Description
+  const descWrap = document.getElementById('modalDescWrap');
+  const descEl   = document.getElementById('modalDesc');
+  if (p.descripcion && p.descripcion.trim()) {
+    descEl.textContent = p.descripcion;
+    descWrap.style.display = 'block';
+  } else {
+    descWrap.style.display = 'none';
+  }
+
+  // Price
+  const priceEl = document.getElementById('modalPrice');
+  if (priceMode === 'publico') {
+    priceEl.textContent = '';
+    priceEl.style.display = 'none';
+  } else {
+    priceEl.style.display = '';
+    priceEl.textContent = fmtPrice(p.precio);
+    priceEl.className   = 'modal-price' + (p.precio==='pendiente'||p.precio===undefined ? ' pendiente' : '');
+  }
+
+  // Pedido: resetear cantidad y nota; los agotados no se pueden pedir
+  modalQtyVal = 1;
+  document.getElementById('modalQty').value = '1';
+  document.getElementById('modalNota').value = '';
+  document.getElementById('orderControls').style.display = p.agotado ? 'none' : '';
+  const addBtn = document.getElementById('addCartBtn');
+  addBtn.textContent = 'Agregar al pedido';
+  addBtn.classList.remove('added');
+
+  // Open
+  const modalWasOpen = document.getElementById('modalOverlay').classList.contains('open');
+  preloadModalSlides();
+
+  const token = ++modalImgToken;
+  let shown = false;
+  const reveal = function () {
+    if (shown || token !== modalImgToken) return;
+    shown = true;
+    document.getElementById('modalOverlay').classList.add('open');
+    if (!modalWasOpen) lockBodyScroll();
+    // Avance automático del carrusel
+    stopModalAuto();
+    if (modalSlides.length > 1) { modalAutoOn = true; scheduleModalAuto(); }
+  };
+
+  // Si la foto ya esta en cache se abre al instante; si no, se espera a que
+  // cargue (con tope de 250 ms para no dejar al usuario sin respuesta).
+  if (modalImg.complete && modalImg.naturalWidth > 0) {
+    reveal();
+  } else {
+    modalImg.addEventListener('load', reveal, { once: true });
+    modalImg.addEventListener('error', reveal, { once: true });
+    setTimeout(reveal, 250);
+  }
+}
+
+function closeModal() {
+  const wasOpen = document.getElementById('modalOverlay').classList.contains('open');
+  stopModalAuto();
+  stopModalVideo();
+  document.getElementById('modalOverlay').classList.remove('open');
+  if (wasOpen) unlockBodyScroll();
+  currentProduct = null;
+}
+
+function closeModalIfOutside(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function modalSwap(src) {
+  const i = modalSlides.indexOf(src);
+  if (i >= 0) modalGoSlide(i);
+}
+
+// ── CARRUSEL: fotos del producto primero, ficha técnica al final ──
+function modalGoSlide(n, auto) {
+  if (!currentProduct || !modalSlides.length) return;
+  if (!auto) stopModalAuto();   // si el usuario navega, se cancela el avance automático
+  const p     = currentProduct;
+  const total = modalSlides.length;
+  n = ((n % total) + total) % total;
+  modalSlide = n;
+  const isFicha = modalHasFicha && n === modalFichaIndex;
+  const isVideo = modalHasVideo && n === modalVideoIndex;
+
+  const img     = document.getElementById('modalImg');
+  const hint    = document.getElementById('fichaZoomHint');
+  const imgSide = document.getElementById('modalImgSide');
+  const tabs    = document.getElementById('modalSlideTabs').querySelectorAll('.modal-slide-tab');
+  // Índice de la pestaña activa: Foto | Ficha técnica | Video (las dos últimas son opcionales)
+  let tabIdx = 0;
+  if (isFicha) tabIdx = 1;
+  else if (isVideo) tabIdx = modalHasFicha ? 2 : 1;
+  tabs.forEach((t,i)=>t.classList.toggle('active', i === tabIdx));
+
+  const src = modalSlides[n];
+
+  // Slide de video: se muestra el <video> en lugar de la imagen
+  const vid  = document.getElementById('modalVideo');
+  const play = document.getElementById('modalPlayBtn');
+  if (isVideo) {
+    img.style.display = 'none';
+    vid.classList.add('show');
+    play.classList.add('show');
+    if (vid.dataset.src !== src) { vid.dataset.src = src; vid.src = src; }
+    vid.pause();
+    vid.onerror = function(){ stopModalVideo(); modalGoSlide(0); };
+    hint.style.display = 'none';
+    imgSide.classList.remove('showing-ficha');
+    const dotsV = document.getElementById('modalDots').querySelectorAll('.modal-dot');
+    dotsV.forEach((d,i)=>d.classList.toggle('active', i === n));
+    scheduleModalAuto();
+    return;
+  }
+  stopModalVideo();
+  img.style.display = '';
+  img.classList.toggle('is-ficha', isFicha);
+  img.classList.toggle('is-zoomable', !isFicha);
+  if (isFicha) {
+    img.alt = 'Ficha técnica ' + p.referencia;
+    img.onclick = function(){ openFicha(src, 'Ficha técnica ' + p.referencia); };
+    img.onerror = function(){ this.onerror = null; modalGoSlide(0); };
+  } else {
+    modalColorSrc = src;
+    img.alt = p.nombre;
+    img.onclick = function(){ openFicha(src, p.nombre); };
+    img.onerror = null;
+  }
+  setSlideImage(img, src);
+  hint.style.display = 'block';
+  imgSide.classList.toggle('showing-ficha', isFicha);
+
+  const dots = document.getElementById('modalDots').querySelectorAll('.modal-dot');
+  dots.forEach((d,i)=>d.classList.toggle('active', i === n));
+  scheduleModalAuto();
+}
+function modalNextSlide(e) { if (e) e.stopPropagation(); modalGoSlide(modalSlide + 1); }
+function modalPrevSlide(e) { if (e) e.stopPropagation(); modalGoSlide(modalSlide - 1); }
+
+// ── DESLIZAR (SWIPE) ENTRE FOTOS / FICHA / VIDEO ───────────────
+(function(){
+  var el = document.getElementById('modalImgSide');
+  if (!el) return;
+  var startX = 0, startY = 0, startT = 0, tracking = false, swiped = false;
+
+  el.addEventListener('touchstart', function(e){
+    if (e.touches.length !== 1 || !modalSlides || modalSlides.length < 2) { tracking = false; return; }
+    tracking = true; swiped = false;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    startT = Date.now();
+  }, { passive: true });
+
+  el.addEventListener('touchmove', function(e){
+    if (!tracking) return;
+    var dx = e.touches[0].clientX - startX, dy = e.touches[0].clientY - startY;
+    if (Math.abs(dx) > 14 && Math.abs(dx) > Math.abs(dy)) swiped = true;
+  }, { passive: true });
+
+  el.addEventListener('touchend', function(e){
+    if (!tracking) return;
+    tracking = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - startX, dy = t.clientY - startY;
+    if (Math.abs(dx) >= 45 && Math.abs(dx) > Math.abs(dy) * 1.4 && (Date.now() - startT) < 800) {
+      swiped = true;
+      stopModalAuto();
+      modalGoSlide(modalSlide + (dx < 0 ? 1 : -1));
+    } else {
+      swiped = false;
+    }
+  }, { passive: true });
+
+  el.addEventListener('touchcancel', function(){ tracking = false; swiped = false; }, { passive: true });
+
+  // Un deslizamiento no debe abrir la lupa ni reproducir el video
+  el.addEventListener('click', function(e){
+    if (swiped) { swiped = false; e.preventDefault(); e.stopPropagation(); }
+  }, true);
+})();
+
+// ── VIDEO DEL PRODUCTO ─────────────────────────────────────────
+function toggleModalVideo(e) {
+  if (e) e.stopPropagation();
+  stopModalAuto();
+  const vid  = document.getElementById('modalVideo');
+  const play = document.getElementById('modalPlayBtn');
+  if (!vid || !vid.src) return;
+  if (vid.paused) {
+    vid.muted = true;               // sin sonido: requisito para autoplay en móvil
+    const pr = vid.play();
+    if (pr && pr.catch) pr.catch(function(){ play.classList.add('show'); });
+    play.classList.remove('show');
+  } else {
+    vid.pause();
+    play.classList.add('show');
+  }
+}
+function stopModalVideo() {
+  const vid  = document.getElementById('modalVideo');
+  const play = document.getElementById('modalPlayBtn');
+  if (!vid) return;
+  vid.pause();
+  vid.classList.remove('show');
+  if (play) play.classList.remove('show');
+}
+
+// ── LIGHTBOX FICHA (pantalla completa) ─────────────────────────
+function openFicha(src, alt) {
+  stopModalAuto();
+  const im = document.getElementById('fichaFullImg');
+  im.src = src;
+  im.alt = alt || 'Imagen ampliada';
+  document.getElementById('fichaOverlay').classList.add('open');
+}
+function closeFicha(e) {
+  if (e && e.target === document.getElementById('fichaFullImg')) return;
+  document.getElementById('fichaOverlay').classList.remove('open');
+}
+
+// ── LAZY LOADING ───────────────────────────────────────────────
+// Crea un nuevo IntersectionObserver para imágenes. Se llama cada vez que
+// render() resetea el catálogo para descartar observaciones anteriores.
+function resetLazyObserver() {
+  if (imgObserver) imgObserver.disconnect();
+  imgObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      const src = img.dataset.src;
+      if (src) { img.src = src; img.removeAttribute('data-src'); }
+      imgObserver.unobserve(img);
+    });
+  }, { rootMargin: '400px' });   // empieza a cargar 400px antes de entrar al viewport
+}
+
+// Añade al observer todas las imágenes lazy nuevas (sin re-observar las ya registradas)
+function observeNewImages() {
+  document.querySelectorAll('#catalogContent img[data-src]').forEach(img => {
+    imgObserver.observe(img);
+  });
+}
+
+// ── BUILD RENDER LIST ──────────────────────────────────────────
+// Genera una lista plana de {type:'header'|'card', ...} con todo el catálogo
+// filtrado. Los headers de sección se intercalan entre las tarjetas.
+function buildRenderList() {
+  const sorted = sortProducts(filterProducts());
+  const items  = [];
+
+  // Agrupa por secciones solo cuando no hay filtros ni búsqueda activa.
+  if (!hasFilters() && !searchText && sorted.length > 0) {
+    if (view === 'rutina') {
+      RUTINAS.forEach(g => {
+        const gp = sorted.filter(p => p.categoria === g);
+        if (!gp.length) return;
+        items.push({ type: 'header', label: g, count: gp.length });
+        gp.forEach(p => items.push({ type: 'card', p }));
+      });
+    } else if (view === 'marca') {
+      const groups = [...new Set(sorted.map(p=>p.marca))].sort((a,b)=>a.localeCompare(b,'es'));
+      groups.forEach(g => {
+        const gp = sorted.filter(p => p.marca === g);
+        if (!gp.length) return;
+        items.push({ type: 'header', label: g, count: gp.length });
+        gp.forEach(p => items.push({ type: 'card', p }));
+      });
+    } else { // tipo_piel
+      const typeCount = {};
+      sorted.forEach(p => (p.tipos_piel||[]).forEach(t => { typeCount[t]=(typeCount[t]||0)+1; }));
+      const groups = Object.keys(typeCount).sort((a,b) => typeCount[b]-typeCount[a]);
+      const seen = new Set();
+      groups.forEach(g => {
+        const gp = sorted.filter(p => {
+          if (!(p.tipos_piel||[]).includes(g)) return false;
+          if (seen.has(p.referencia)) return false;
+          seen.add(p.referencia);
+          return true;
+        });
+        if (!gp.length) return;
+        items.push({ type: 'header', label: g, count: gp.length });
+        gp.forEach(p => items.push({ type: 'card', p }));
+      });
+    }
+  } else {
+    sorted.forEach(p => items.push({ type: 'card', p }));
+  }
+  return items;
+}
+
+// ── CARRUSEL "MÁS VENDIDOS" ────────────────────────────────────
+// Sección independiente del scroll infinito: se muestra completa (no paginada)
+// con flechas para navegar. Solo aparece con filtro "Todos" y sin búsqueda activa.
+function renderBestsellerCarousel(el) {
+  if (hasFilters() || searchText) return;
+  const bestsellers = filterProducts().filter(p => isMasVendido(p));
+  if (!bestsellers.length) return;
+  // Disponibles primero, agotados al final del carrusel (sort estable)
+  bestsellers.sort((a, b) => (a.agotado?1:0) - (b.agotado?1:0));
+
+  const wrap = document.createElement('div');
+  wrap.className = 'bestseller-wrap';
+  wrap.innerHTML =
+      '<div class="section-label bestseller-label">⭐ Más vendidos <span>' + bestsellers.length + ' productos</span></div>'
+    + '<div class="bestseller-carousel">'
+    +   '<button class="carousel-arrow carousel-arrow-left" onclick="scrollBestsellers(-1)" aria-label="Anterior">&#8249;</button>'
+    +   '<div class="bestseller-track" id="bestsellerTrack"></div>'
+    +   '<button class="carousel-arrow carousel-arrow-right" onclick="scrollBestsellers(1)" aria-label="Siguiente">&#8250;</button>'
+    + '</div>';
+  el.appendChild(wrap);
+
+  const track = wrap.querySelector('#bestsellerTrack');
+  bestsellers.forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'bestseller-item';
+    const tmp = document.createElement('div');
+    tmp.innerHTML = cardHTML(p, i < 5);
+    item.appendChild(tmp.firstChild);
+    track.appendChild(item);
+  });
+
+  observeNewImages();
+}
+
+function scrollBestsellers(dir) {
+  const track = document.getElementById('bestsellerTrack');
+  if (!track) return;
+  track.scrollBy({ left: track.clientWidth * 0.9 * dir, behavior: 'smooth' });
+}
+
+// ── CARRUSEL "PREVENTA" ────────────────────────────────────────
+// Misma mecánica que "Más vendidos": sección independiente, no paginada.
+function renderPreventaCarousel(el) {
+  if (hasFilters() || searchText) return;
+  const preventas = filterProducts().filter(p => p.preventa === true);
+  if (!preventas.length) return;
+  // Disponibles primero, agotados al final del carrusel (sort estable)
+  preventas.sort((a, b) => (a.agotado?1:0) - (b.agotado?1:0));
+
+  const wrap = document.createElement('div');
+  wrap.className = 'bestseller-wrap';
+  wrap.innerHTML =
+      '<div class="section-label preventa-label">\u2728 Preventa <span>' + preventas.length + ' productos</span></div>'
+    + '<div class="bestseller-carousel">'
+    +   '<button class="carousel-arrow carousel-arrow-left" onclick="scrollPreventa(-1)" aria-label="Anterior">&#8249;</button>'
+    +   '<div class="bestseller-track" id="preventaTrack"></div>'
+    +   '<button class="carousel-arrow carousel-arrow-right" onclick="scrollPreventa(1)" aria-label="Siguiente">&#8250;</button>'
+    + '</div>';
+  el.appendChild(wrap);
+
+  const track = wrap.querySelector('#preventaTrack');
+  preventas.forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'bestseller-item';
+    const tmp = document.createElement('div');
+    tmp.innerHTML = cardHTML(p, false);
+    item.appendChild(tmp.firstChild);
+    track.appendChild(item);
+  });
+
+  observeNewImages();
+}
+
+function scrollPreventa(dir) {
+  const track = document.getElementById('preventaTrack');
+  if (!track) return;
+  track.scrollBy({ left: track.clientWidth * 0.9 * dir, behavior: 'smooth' });
+}
+
+
+// ── APPEND PAGE ────────────────────────────────────────────────
+// Renderiza hasta PAGE_SIZE tarjetas desde renderOffset.
+// Usa la clase .product-grid-open para rastrear el grid activo y poder
+// continuar un grupo que quedó partido entre dos lotes sin duplicar headers.
+function appendPage() {
+  const el       = document.getElementById('catalogContent');
+  const sentinel = document.getElementById('scroll-sentinel');
+  let cardsRendered = 0;
+
+  // Si el grupo anterior se partió entre páginas, reutiliza su grid abierto
+  let grid = el.querySelector('.product-grid-open');
+
+  while (renderOffset < renderList.length && cardsRendered < PAGE_SIZE) {
+    const item = renderList[renderOffset];
+
+    if (item.type === 'header') {
+      if (grid) { grid.classList.remove('product-grid-open'); grid = null; }
+      const lbl = document.createElement('div');
+      lbl.className = 'section-label';
+      lbl.innerHTML = item.label + ' <span>' + item.count + ' productos</span>';
+      el.insertBefore(lbl, sentinel);
+    } else {
+      if (!grid) {
+        grid = document.createElement('div');
+        grid.className = 'product-grid product-grid-open';
+        el.insertBefore(grid, sentinel);
+      }
+      const eager = eagerCount < EAGER_COUNT;
+      if (eager) eagerCount++;
+      const tmp = document.createElement('div');
+      tmp.innerHTML = cardHTML(item.p, eager);
+      grid.appendChild(tmp.firstChild);
+      cardsRendered++;
+    }
+    renderOffset++;
+  }
+
+  observeNewImages();
+
+  if (renderOffset >= renderList.length) {
+    if (grid) grid.classList.remove('product-grid-open');
+    if (sentinelObserver) { sentinelObserver.disconnect(); sentinelObserver = null; }
+  }
+}
+
+// ── RENDER ────────────────────────────────────────────────────
+function render() {
+  buildPills(); updateStats(); updateCartUI();
+
+  // Resetear estado de paginado
+  renderList   = buildRenderList();
+  renderOffset = 0;
+  eagerCount   = 0;
+  resetLazyObserver();
+  if (sentinelObserver) { sentinelObserver.disconnect(); sentinelObserver = null; }
+
+  const el = document.getElementById('catalogContent');
+  el.innerHTML = '';
+
+  renderBestsellerCarousel(el);
+
+  if (!renderList.length) {
+    el.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><p>No se encontraron productos.</p></div>';
+    return;
+  }
+
+  // Contador de resultados (solo tarjetas, sin headers)
+  const cardCount = renderList.filter(i => i.type === 'card').length;
+  const countDiv = document.createElement('div');
+  countDiv.className = 'results-count';
+  countDiv.textContent = cardCount + ' producto' + (cardCount !== 1 ? 's' : '');
+  el.appendChild(countDiv);
+
+  // Centinela: elemento invisible al final del contenido rendereizado
+  // que dispara la carga del siguiente lote al entrar al viewport
+  const sentinel = document.createElement('div');
+  sentinel.id = 'scroll-sentinel';
+  el.appendChild(sentinel);
+
+  // Primera página (48 tarjetas)
+  appendPage();
+
+  // Activar observer del centinela solo si hay más productos por renderizar
+  if (renderOffset < renderList.length) {
+    sentinelObserver = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) appendPage();
+    }, { rootMargin: '200px' });
+    sentinelObserver.observe(sentinel);
+  }
+}
+
+function updateStats() {
+  const t = allProducts.length;
+  const n = allProducts.filter(p=>p.nuevo).length;
+  const m = new Set(allProducts.map(p=>p.marca)).size;
+  document.getElementById('headerStats').textContent = t+' referencias en preventa · '+n+' nuevas · '+m+' marcas';
+}
+
+// ── CARRITO DE PEDIDOS ────────────────────────────────────────
+const CART_KEY = 'skink_preventa_pedido';
+const CATALOG_NAME = 'Entrebell Skin Preventa';
+
+const WHATSAPP_DESTINOS = {
+  sinprecios: [ { label: 'Elegir entre tus contactos', numero: null } ]
+};
+
+// Cada ítem: { ref, qty, nota }. Los precios NO se guardan: se resuelven
+// siempre según el modo activo (detal / mayorista / catálogo sin precios).
+let cart = loadCart();
+let modalQtyVal = 1;
+
+function loadCart() {
+  try {
+    const arr = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+    if (!Array.isArray(arr)) return [];
+    return arr
+      .filter(i => i && typeof i.ref === 'string' && Number(i.qty) > 0)
+      .map(i => ({
+        ref: i.ref,
+        qty: Math.min(999, Math.max(1, Math.floor(Number(i.qty)))),
+        nota: typeof i.nota === 'string' ? i.nota.slice(0, 140) : ''
+      }));
+  } catch (e) { return []; }
+}
+function saveCart() {
+  try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {}
+}
+
+function productByRef(ref) { return (detalProducts || []).find(p => p.referencia === ref); }
+function pricedProductByRef(ref) {
+  const list = priceMode === 'mayorista' ? mayoristasProducts : detalProducts;
+  return (list || []).find(p => p.referencia === ref);
+}
+// Precio unitario numérico según modo activo; null si no aplica (modo catálogo,
+// precio "pendiente"/"Muestra" o producto no encontrado)
+function unitPriceNum(ref) {
+  if (priceMode === 'publico') return null;
+  const p = pricedProductByRef(ref);
+  return (p && typeof p.precio === 'number') ? p.precio : null;
+}
+function unitPriceRaw(ref) {
+  if (priceMode === 'publico') return null;
+  const p = pricedProductByRef(ref);
+  return p ? p.precio : null;
+}
+function money(n) { return '$' + Number(n).toLocaleString('es-CO'); }
+function cartUnits() { return cart.reduce((s, i) => s + i.qty, 0); }
+function escHTML(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ── Modal: cantidad y agregar ──
+function modalQtyDelta(d) {
+  modalQtyVal = Math.max(1, Math.min(999, modalQtyVal + d));
+  document.getElementById('modalQty').value = modalQtyVal;
+}
+function modalQtySet(val) {
+  let n = parseInt(val, 10);
+  if (isNaN(n)) n = 1;
+  modalQtyVal = Math.max(1, Math.min(999, n));
+  document.getElementById('modalQty').value = modalQtyVal;
+}
+function addCurrentToCart() {
+  if (!currentProduct || currentProduct.agotado) return;
+  const nota = (document.getElementById('modalNota').value || '').trim();
+  const found = cart.find(i => i.ref === currentProduct.referencia && i.nota === nota);
+  if (found) found.qty = Math.min(999, found.qty + modalQtyVal);
+  else cart.push({ ref: currentProduct.referencia, qty: modalQtyVal, nota });
+  saveCart(); updateCartUI();
+  const btn = document.getElementById('addCartBtn');
+  btn.textContent = 'Agregado ✓';
+  btn.classList.add('added');
+  setTimeout(() => { btn.textContent = 'Agregar al pedido'; btn.classList.remove('added'); }, 1200);
+}
+
+// Agregar al pedido directamente desde la tarjeta (sin abrir el producto)
+function quickAddToCart(ev, idx) {
+  ev.stopPropagation();
+  const p = allProducts[idx];
+  if (!p || p.agotado) return;
+  const found = cart.find(i => i.ref === p.referencia && i.nota === '');
+  if (found) found.qty = Math.min(999, found.qty + 1);
+  else cart.push({ ref: p.referencia, qty: 1, nota: '' });
+  saveCart(); updateCartUI();
+  const btn = ev.currentTarget;
+  btn.innerHTML = '<span class="card-add-ico">\u2713</span>Agregado';
+  btn.classList.add('added');
+  setTimeout(() => { btn.innerHTML = '<span class="card-add-ico">\uD83D\uDECD\uFE0F</span>Agregar al carrito'; btn.classList.remove('added'); }, 1200);
+}
+
+// ── Drawer ──
+function openCart() {
+  const wasOpen = document.getElementById('cartDrawer').classList.contains('open');
+  updateCartUI();
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+  if (!wasOpen) lockBodyScroll();
+}
+function closeCart() {
+  const wasOpen = document.getElementById('cartDrawer').classList.contains('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+  if (wasOpen) unlockBodyScroll();
+}
+function cartQtyDelta(idx, d) {
+  const it = cart[idx];
+  if (!it) return;
+  it.qty = Math.max(1, Math.min(999, it.qty + d));
+  saveCart(); updateCartUI();
+}
+function cartQtySet(idx, val) {
+  const it = cart[idx];
+  if (!it) return;
+  let n = parseInt(val, 10);
+  if (isNaN(n)) n = 1;
+  it.qty = Math.max(1, Math.min(999, n));
+  saveCart(); updateCartUI();
+}
+function removeCartItem(idx) {
+  cart.splice(idx, 1);
+  saveCart(); updateCartUI();
+}
+function clearCart() {
+  if (!cart.length) return;
+  if (!confirm('¿Vaciar todo el pedido?')) return;
+  cart = [];
+  saveCart(); updateCartUI();
+}
+
+function updateCartUI() {
+  // Badge del header
+  const n = cartUnits();
+  const badge = document.getElementById('cartCount');
+  badge.textContent = n > 99 ? '99+' : n;
+  badge.classList.toggle('show', n > 0);
+
+  // Lista de ítems
+  const wrap = document.getElementById('cartItems');
+  const foot = document.getElementById('cartFoot');
+  if (!cart.length) {
+    wrap.innerHTML = '<div class="cart-empty">Tu pedido está vacío.<br>Abre un producto y pulsa "Agregar al pedido".</div>';
+    foot.style.display = 'none';
+    return;
+  }
+  foot.style.display = '';
+
+  let total = 0, hasPending = false;
+  wrap.innerHTML = cart.map((it, idx) => {
+    const p = productByRef(it.ref);
+    const nombre = p ? p.nombre : it.ref;
+    let pricesHTML;
+    if (priceMode === 'publico') {
+      pricesHTML = '<div class="cart-item-sub pendiente">Precio a confirmar</div>';
+    } else {
+      const num = unitPriceNum(it.ref);
+      if (num === null) {
+        hasPending = true;
+        pricesHTML = '<div class="cart-item-sub pendiente">' + escHTML(fmtPrice(unitPriceRaw(it.ref))) + '</div>';
+      } else {
+        total += num * it.qty;
+        pricesHTML = '<div class="cart-item-unit">' + it.qty + ' × ' + money(num) + '</div>'
+                   + '<div class="cart-item-sub">' + money(num * it.qty) + '</div>';
+      }
+    }
+    return '<div class="cart-item">'
+      + '<div class="cart-item-top"><div>'
+      +   '<div class="cart-item-name">' + escHTML(nombre) + '</div>'
+      +   '<div class="cart-item-ref">Ref: ' + escHTML(it.ref) + '</div>'
+      +   (it.nota ? '<div class="cart-item-nota">Nota: ' + escHTML(it.nota) + '</div>' : '')
+      + '</div><button class="cart-item-del" onclick="removeCartItem(' + idx + ')" title="Eliminar">✕</button></div>'
+      + '<div class="cart-item-bottom">'
+      +   '<div class="qty-select">'
+      +     '<button onclick="cartQtyDelta(' + idx + ',-1)" title="Menos">−</button>'
+      +     '<input type="number" class="qty-input" value="' + it.qty + '" min="1" max="999" inputmode="numeric" onchange="cartQtySet(' + idx + ', this.value)">'
+      +     '<button onclick="cartQtyDelta(' + idx + ',1)" title="Más">+</button>'
+      +   '</div>'
+      +   '<div class="cart-item-prices">' + pricesHTML + '</div>'
+      + '</div></div>';
+  }).join('');
+
+  // Total
+  const totalEl = document.getElementById('cartTotal');
+  const noteEl  = document.getElementById('cartTotalNote');
+  if (priceMode === 'publico') {
+    totalEl.textContent = cart.length + ' producto' + (cart.length !== 1 ? 's' : '') + ' · ' + n + ' unidad' + (n !== 1 ? 'es' : '');
+    totalEl.className = 'cart-total pendiente';
+    noteEl.textContent = 'Los precios se confirman al enviar el pedido.';
+  } else {
+    totalEl.textContent = money(total);
+    totalEl.className = 'cart-total';
+    noteEl.textContent = hasPending ? 'Algunos precios se confirman con tu asesora.' : '';
+  }
+}
+
+// ── Datos del cliente (obligatorios antes de enviar por WhatsApp) ──
+// Variable global: se conserva durante toda la sesión aunque el cliente
+// cierre el carrito, agregue más productos o reabra el formulario.
+let clienteData = { cedula: '', nombre: '', direccion: '', ciudad: '', telefono: '', agenteRetenedor: '' };
+
+const CLIENTE_CAMPOS = [
+  { id: 'clienteCedula',    err: 'errClienteCedula',    key: 'cedula' },
+  { id: 'clienteNombre',    err: 'errClienteNombre',    key: 'nombre' },
+  { id: 'clienteDireccion', err: 'errClienteDireccion', key: 'direccion' },
+  { id: 'clienteCiudad',    err: 'errClienteCiudad',    key: 'ciudad' },
+  { id: 'clienteTelefono',  err: 'errClienteTelefono',  key: 'telefono' }
+];
+
+// Selección temporal del formulario (Sí/No no es un <input> de texto normal)
+let agenteRetenedorSeleccion = '';
+
+function setAgenteRetenedor(val) {
+  agenteRetenedorSeleccion = val;
+  document.getElementById('btnAgenteRetSi').classList.toggle('active', val === 'si');
+  document.getElementById('btnAgenteRetNo').classList.toggle('active', val === 'no');
+  document.getElementById('errClienteAgenteRetenedor').textContent = '';
+}
+
+function abrirFormularioCliente() {
+  if (!cart.length) return;
+  CLIENTE_CAMPOS.forEach(c => {
+    document.getElementById(c.id).value = clienteData[c.key] || '';
+    document.getElementById(c.id).classList.remove('error');
+    document.getElementById(c.err).textContent = '';
+  });
+  const campoAgente = document.getElementById('clienteAgenteRetenedorField');
+  if (priceMode === 'mayorista') {
+    campoAgente.style.display = '';
+    agenteRetenedorSeleccion = clienteData.agenteRetenedor || '';
+    setAgenteRetenedor(agenteRetenedorSeleccion);
+  } else {
+    campoAgente.style.display = 'none';
+    agenteRetenedorSeleccion = '';
+  }
+  document.getElementById('errClienteAgenteRetenedor').textContent = '';
+  document.getElementById('clienteErrorGeneral').textContent = '';
+  document.getElementById('clienteOverlay').classList.add('open');
+}
+function closeClienteForm() {
+  document.getElementById('clienteOverlay').classList.remove('open');
+}
+function closeClienteFormIfOutside(e) {
+  if (e.target === document.getElementById('clienteOverlay')) closeClienteForm();
+}
+function validarYContinuarFormularioCliente() {
+  let valido = true;
+  const valores = {};
+  CLIENTE_CAMPOS.forEach(c => {
+    const input = document.getElementById(c.id);
+    const val = (input.value || '').trim();
+    valores[c.key] = val;
+    if (!val) {
+      valido = false;
+      input.classList.add('error');
+      document.getElementById(c.err).textContent = 'Este campo es obligatorio';
+    } else {
+      input.classList.remove('error');
+      document.getElementById(c.err).textContent = '';
+    }
+  });
+  if (priceMode === 'mayorista') {
+    if (agenteRetenedorSeleccion !== 'si' && agenteRetenedorSeleccion !== 'no') {
+      valido = false;
+      document.getElementById('errClienteAgenteRetenedor').textContent = 'Selecciona una opción';
+    } else {
+      document.getElementById('errClienteAgenteRetenedor').textContent = '';
+    }
+  }
+  valores.agenteRetenedor = priceMode === 'mayorista' ? agenteRetenedorSeleccion : '';
+  const generalErr = document.getElementById('clienteErrorGeneral');
+  if (!valido) {
+    generalErr.textContent = 'Completa todos los campos para continuar.';
+    return;
+  }
+  generalErr.textContent = '';
+  clienteData = valores; // se conserva en la variable global durante la sesión
+  closeClienteForm();
+  // Continúa el flujo normal: menú de destinos si existe, o directo a WhatsApp si no.
+  if (typeof openDestinos === 'function') {
+    openDestinos();
+  } else {
+    const msg = encodeURIComponent(buildOrderMessage());
+    window.open('https://wa.me/?text=' + msg, '_blank');
+  }
+}
+
+// ── Menú de destinos WhatsApp ──
+function destKey() {
+  return priceMode === 'mayorista' ? 'mayorista' : (priceMode === 'detal' ? 'detal' : 'sinprecios');
+}
+function openDestinos() {
+  if (!cart.length) return;
+  const dests = WHATSAPP_DESTINOS[destKey()] || [];
+  let html = '', lastGroup = null;
+  dests.forEach((d, i) => {
+    if (d.grupo && d.grupo !== lastGroup) {
+      html += '<div class="dest-group">' + escHTML(d.grupo) + '</div>';
+      lastGroup = d.grupo;
+    }
+    const sub = d.asesora
+      ? '<span class="dest-sub">' + escHTML(d.asesora) + ' · +' + escHTML(d.numero) + '</span>'
+      : (d.numero ? '<span class="dest-sub">+' + escHTML(d.numero) + '</span>'
+                  : '<span class="dest-sub">Abre WhatsApp y eliges tú el contacto</span>');
+    html += '<button class="dest-item" onclick="sendOrder(' + i + ')">'
+      + '<span class="dest-label">' + escHTML(d.label) + '</span>' + sub + '</button>';
+  });
+  document.getElementById('destList').innerHTML = html;
+  document.getElementById('destOverlay').classList.add('open');
+}
+function closeDestinos() { document.getElementById('destOverlay').classList.remove('open'); }
+function closeDestinosIfOutside(e) {
+  if (e.target === document.getElementById('destOverlay')) closeDestinos();
+}
+function sendOrder(i) {
+  const d = (WHATSAPP_DESTINOS[destKey()] || [])[i];
+  if (!d) return;
+  const msg = encodeURIComponent(buildOrderMessage());
+  const url = d.numero
+    ? 'https://api.whatsapp.com/send?phone=' + d.numero + '&text=' + msg
+    : 'https://wa.me/?text=' + msg;
+  window.open(url, '_blank');
+  closeDestinos();
+}
+
+// ── Mensaje del pedido (sin emojis) ──
+function buildOrderMessage() {
+  const SEP = '━━━━━━━━━━━━━━━━━━━';
+  const modeLabel = priceMode === 'mayorista' ? 'Mayorista'
+                  : priceMode === 'detal' ? 'Detal'
+                  : 'Precios a confirmar';
+  const lines = [];
+  lines.push('*Datos del cliente*');
+  lines.push('• Nombre: ' + (clienteData.nombre || ''));
+  lines.push('• Cédula: ' + (clienteData.cedula || ''));
+  lines.push('• Dirección: ' + (clienteData.direccion || ''));
+  lines.push('• Ciudad: ' + (clienteData.ciudad || ''));
+  lines.push('• Teléfono: ' + (clienteData.telefono || ''));
+  if (priceMode === 'mayorista') {
+    lines.push('• Agente retenedor: ' + (clienteData.agenteRetenedor === 'si' ? 'Sí' : 'No'));
+  }
+  lines.push(SEP);
+  lines.push('');
+  lines.push('*NUEVO PEDIDO — ' + CATALOG_NAME.toUpperCase() + '*');
+  lines.push('Tipo de pedido: *PREVENTA*');
+  lines.push('Precios: *por confirmar*');
+  lines.push(SEP);
+  lines.push('');
+
+  let total = 0, units = 0, hasPending = false;
+  cart.forEach((it, idx) => {
+    const p = productByRef(it.ref);
+    const nombre = p ? p.nombre : it.ref;
+    units += it.qty;
+    lines.push('*' + (idx + 1) + '. ' + nombre + '*');
+    lines.push('- Ref: ' + it.ref);
+    if (it.nota) lines.push('- Nota: ' + it.nota);
+    if (priceMode === 'publico') {
+      lines.push('- Cantidad: ' + it.qty);
+    } else {
+      const num = unitPriceNum(it.ref);
+      if (num === null) {
+        hasPending = true;
+        lines.push('- Cantidad: ' + it.qty);
+        lines.push('- Precio: por confirmar');
+      } else {
+        total += num * it.qty;
+        lines.push('- Cantidad: ' + it.qty + ' × ' + money(num));
+        lines.push('- Subtotal: *' + money(num * it.qty) + '*');
+      }
+    }
+    lines.push('');
+  });
+
+  lines.push(SEP);
+  lines.push('Productos: ' + cart.length + '  ·  Unidades: ' + units);
+  const esAgenteRetenedor = priceMode === 'mayorista' && clienteData.agenteRetenedor === 'si';
+  if (priceMode === 'publico') {
+    lines.push('*TOTAL: precios a confirmar*');
+  } else if (hasPending) {
+    lines.push('*TOTAL: ' + money(total) + '* (mas precios por confirmar)');
+    if (esAgenteRetenedor) lines.push('Retención a calcular por la asesora');
+  } else {
+    lines.push('*TOTAL: ' + money(total) + '*');
+    if (esAgenteRetenedor) {
+      const baseRetencion = Math.round(total / IVA_FACTOR);
+      if (baseRetencion >= RETENCION_BASE_MINIMA) {
+        const retencion  = Math.round(baseRetencion * RETENCION_TARIFA);
+        const valorFinal = total - retencion;
+        const SEP_RET = '━━━━━━━━━━━━━━━';
+        lines.push('Base a aplicar retención: ' + money(baseRetencion));
+        lines.push('Retención en la fuente (2,5%): ' + money(retencion));
+        lines.push(SEP_RET);
+        lines.push('➤ *VALOR FINAL A PAGAR: ' + money(valorFinal) + '*');
+        lines.push(SEP_RET);
+      } else {
+        lines.push('Retención en la fuente: no aplica (base inferior a ' + money(RETENCION_BASE_MINIMA) + ')');
+      }
+    }
+  }
+  lines.push('');
+  lines.push('_Enviado desde el catálogo ' + CATALOG_NAME + '_');
+  return lines.join('\n');
+}
+
+/* ── Carrito: en movil vive en la fila de filtros, en desktop en el header ── */
+(function(){
+  var mq = window.matchMedia('(max-width: 600px)');
+  function place(){
+    var cart = document.getElementById('cartBtn');
+    var row = document.querySelector('.filters-row');
+    var hdr = document.querySelector('.header-inner');
+    if (!cart || !row || !hdr) return;
+    if (mq.matches) { if (cart.parentNode !== row) row.appendChild(cart); }
+    else { if (cart.parentNode !== hdr) hdr.appendChild(cart); }
+  }
+  place();
+  if (mq.addEventListener) mq.addEventListener('change', place); else mq.addListener(place);
+})();
+
+/* ── Altura real del header -> offset sticky de la barra de filtros ── */
+(function syncHeaderHeight() {
+  var header = document.querySelector('header');
+  if (!header) return;
+  function apply() {
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  apply();
+  window.addEventListener('resize', apply);
+  window.addEventListener('orientationchange', function(){ setTimeout(apply, 150); });
+  if (window.ResizeObserver) new ResizeObserver(apply).observe(header);
+  window.addEventListener('load', apply);
+})();
+</script>
+
+</body>
+</html>
