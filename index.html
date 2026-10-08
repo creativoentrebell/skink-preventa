@@ -284,6 +284,13 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
 }
 .modal-img-side img { width: 100%; flex: 1 1 auto; min-height: 0; height: auto; object-fit: contain; padding: 24px; }
 .modal-img-placeholder { color: var(--taupe); font-size: 11px; text-align: center; padding: 24px; text-transform: uppercase; letter-spacing: 0.06em; }
+/* Alto minimo del recuadro de medios en escritorio. Sin esto, en la slide de
+   video (la foto se oculta) y con un producto sin descripcion, nada le da
+   alto al modal: el <video> aun sin cargar mide 150 px por defecto y el modal
+   queda aplastado. En movil el alto ya lo fija la regla de max-width:600px. */
+@media (min-width: 601px) {
+  .modal-img-side { min-height: 420px; }
+}
 
 /* Color dots in modal */
 .modal-dots { display: flex; gap: 6px; padding: 8px 16px 10px; justify-content: center; align-items: center; flex-wrap: wrap; background: rgba(255,255,255,0.7); width: 100%; }
