@@ -860,7 +860,7 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
 .preventa-banner { background: #eaf3ec; border: 1px solid #cfe2d4; color: #3f6a4b; border-radius: 12px; padding: 12px 16px; margin: 0 0 18px; font-size: 13.5px; line-height: 1.45; }
 .preventa-banner b { color: var(--badge-preventa); }
 @media (max-width: 600px) {
-  .preventa-tag { font-size: 10.5px; padding: 6px 10px; }
+  .preventa-tag { display: none; } /* en celular no cabe junto a los modos; el banner y los sellos ya indican preventa */
   .preventa-banner { font-size: 12.5px; padding: 10px 12px; margin-bottom: 12px; }
 }
 </style>
@@ -878,6 +878,11 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
     <div class="header-spacer"></div>
     <div class="header-stats" id="headerStats"></div>
     <span class="preventa-tag">Preventa</span>
+    <div class="price-mode-toggle">
+      <button id="btnCatalogo" class="active" onclick="goPublico()">Catálogo</button>
+      <button id="btnDetal" onclick="requestMode('detal')">Detal <span class="lock-icon" id="lockDetal">🔒</span></button>
+      <button id="btnMayorista" onclick="requestMode('mayorista')">Mayorista <span class="lock-icon" id="lockMay">🔒</span></button>
+    </div>
     <button class="cart-btn" id="cartBtn" onclick="openCart()" title="Ver pedido">🛍️<span class="cart-label">Carrito</span><span class="cart-count" id="cartCount">0</span></button>
   </div>
 </header>
@@ -913,6 +918,8 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
         </button>
         <select class="sort-select" id="sortSelect" onchange="render()">
           <option value="default">Ordenar por defecto</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
           <option value="name-asc">Nombre A→Z</option>
           <option value="brand-asc">Marca A→Z</option>
         </select>
@@ -929,7 +936,7 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
 
 <!-- MAIN -->
 <main class="main">
-  <div class="preventa-banner"><b>Catálogo de preventa.</b> Estos productos llegan en los próximos días. Haz tu pedido ahora y tu asesora te confirmará precios y fecha de entrega.</div>
+  <div class="preventa-banner"><b>Catálogo de preventa.</b> Estos productos llegan en los próximos días. Haz tu pedido ahora y tu asesora te confirmará la fecha de entrega.</div>
   <div id="loading"><div class="spinner"></div><p>Cargando catálogo…</p></div>
   <div id="catalogContent" style="display:none"></div>
 </main>
@@ -997,7 +1004,7 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-foot" id="cartFoot" style="display:none">
     <div class="cart-total-row">
-      <span class="cart-total-label">Resumen</span>
+      <span class="cart-total-label" id="cartTotalLabel">Resumen</span>
       <span class="cart-total" id="cartTotal"></span>
     </div>
     <div class="cart-total-note" id="cartTotalNote"></div>
@@ -1140,14 +1147,120 @@ let eagerCount   = 0;
 let sentinelObserver = null;
 let imgObserver      = null;
 
-// ── SIN PRECIOS ───────────────────────────────────────────────
-// Catálogo de preventa: nunca muestra precios. priceMode se queda fijo
-// en 'publico' para que tarjetas, modal y carrito oculten los precios.
-const priceMode = 'publico';
+// ── PRICE MODE ────────────────────────────────────────────────
+const PWD_DETAL = '121212';
+const PWD_MAY   = '000000';
+
+// ── Retención en la fuente (solo modo Mayorista) ──
+const IVA_FACTOR            = 1.19;   // total con IVA ÷ este factor = base
+const RETENCION_TARIFA      = 0.025;  // 2.5%
+const RETENCION_BASE_MINIMA = 524000; // por debajo de esto, no aplica
+
+let pendingMode = null;
+let priceMode = 'publico';
 let detalProducts = [];
 let mayoristasProducts = [];
-function fmtPrice(precio) { return 'Precio a confirmar'; }
-const IVA_FACTOR = 1.19, RETENCION_TARIFA = 0.025, RETENCION_BASE_MINIMA = 524000;
+let mayoristasLoaded = false;
+
+function fmtPrice(precio) {
+  if (precio === 'pendiente' || precio === undefined || precio === null) return 'Precio por definir';
+  if (typeof precio === 'string') return precio;
+  return '$ ' + Number(precio).toLocaleString('es-CO');
+}
+
+// Muestra u oculta los 3 avisos "pendiente verificar unidades" (header, modal, carrito)
+function updateMayoristaNotices() {
+  const isMay = priceMode === 'mayorista';
+  document.getElementById('mayoristaModalNotice').style.display  = isMay ? '' : 'none';
+  document.getElementById('mayoristaCartNotice').style.display   = isMay ? '' : 'none';
+}
+
+function goPublico() {
+  priceMode   = 'publico';
+  allProducts = detalProducts;
+  document.getElementById('btnCatalogo').classList.add('active');
+  document.getElementById('btnDetal').classList.remove('active');
+  document.getElementById('btnMayorista').classList.remove('active');
+  document.getElementById('lockDetal').textContent = '🔒';
+  document.getElementById('lockMay').textContent   = '🔒';
+  updateMayoristaNotices();
+  render();
+}
+
+function requestMode(mode) {
+  if (priceMode === mode) return;
+  pendingMode = mode;
+  const isMay = mode === 'mayorista';
+  document.getElementById('pwdTitle').textContent = isMay ? 'Catálogo Mayorista' : 'Catálogo Detal';
+  document.getElementById('pwdDesc').textContent  = isMay ? 'Ingresa la contraseña para ver precios mayoristas' : 'Ingresa la contraseña para ver precios detal';
+  document.getElementById('pwdInput').value = '';
+  document.getElementById('pwdError').textContent = '';
+  document.getElementById('pwdInput').classList.remove('error');
+  document.getElementById('pwdOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('pwdInput').focus(), 50);
+}
+
+function checkPwd() {
+  const val      = document.getElementById('pwdInput').value;
+  const expected = pendingMode === 'mayorista' ? PWD_MAY : PWD_DETAL;
+  if (val === expected) {
+    closePwd();
+    if (pendingMode === 'mayorista') activateMayorista();
+    else activateDetal();
+  } else {
+    const input = document.getElementById('pwdInput');
+    input.classList.add('error');
+    document.getElementById('pwdError').textContent = 'Contraseña incorrecta';
+    setTimeout(() => input.classList.remove('error'), 400);
+    input.value = '';
+    input.focus();
+  }
+}
+
+function activateDetal() {
+  priceMode   = 'detal';
+  allProducts = detalProducts;
+  document.getElementById('btnCatalogo').classList.remove('active');
+  document.getElementById('btnDetal').classList.add('active');
+  document.getElementById('btnMayorista').classList.remove('active');
+  document.getElementById('lockDetal').textContent = '🔓';
+  document.getElementById('lockMay').textContent   = '🔒';
+  updateMayoristaNotices();
+  render();
+}
+
+function activateMayorista() {
+  if (mayoristasLoaded) { switchToMayorista(); return; }
+  fetch('skink_preventa_productos_mayorista.json')
+    .then(r => r.json())
+    .then(data => {
+      mayoristasProducts = data;
+      mayoristasLoaded   = true;
+      switchToMayorista();
+    })
+    .catch(() => alert('No se pudo cargar el catálogo mayorista.'));
+}
+
+function switchToMayorista() {
+  priceMode   = 'mayorista';
+  allProducts = mayoristasProducts;
+  document.getElementById('btnCatalogo').classList.remove('active');
+  document.getElementById('btnMayorista').classList.add('active');
+  document.getElementById('btnDetal').classList.remove('active');
+  document.getElementById('lockMay').textContent   = '🔓';
+  document.getElementById('lockDetal').textContent = '🔒';
+  updateMayoristaNotices();
+  render();
+}
+
+function closePwd() {
+  document.getElementById('pwdOverlay').classList.remove('open');
+}
+
+function togglePwdVisibility() {
+  const input = document.getElementById('pwdInput');
+  input.type = input.type === 'password' ? 'text' : 'password';
+}
 
 // Un solo listener para Escape
 document.addEventListener('keydown', e => {
@@ -1158,7 +1271,7 @@ document.addEventListener('keydown', e => {
     if (destOv && destOv.classList.contains('open')) { closeDestinos(); return; }
     const drawer = document.getElementById('cartDrawer');
     if (drawer && drawer.classList.contains('open')) { closeCart(); return; }
-    closeModal();
+    closePwd(); closeModal();
   }
 });
 
@@ -2215,7 +2328,24 @@ const CART_KEY = 'skink_preventa_pedido';
 const CATALOG_NAME = 'Entrebell Skin Preventa';
 
 const WHATSAPP_DESTINOS = {
-  sinprecios: [ { label: 'Elegir entre tus contactos', numero: null } ]
+  sinprecios: [ { label: 'Elegir entre tus contactos', numero: null } ],
+  detal: [
+    { label: 'Elegir entre tus contactos', numero: null },
+    { label: 'Atencion al Cliente Redes', numero: '573217337623' }
+  ],
+  mayorista: [
+    { label: 'Elegir entre tus contactos', numero: null },
+    { grupo: 'Antioquia', label: 'Sur Medellín, Nordeste, Occidente y Suroeste', asesora: 'Asesora', numero: '573245402583' },
+    { grupo: 'Antioquia', label: 'Centro Medellín', asesora: 'Aide Isabel', numero: '573042343068' },
+    { grupo: 'Antioquia', label: 'Norte', asesora: 'Gloria', numero: '573013408198' },
+    { grupo: 'Antioquia', label: 'Oriente', asesora: 'Gloria', numero: '573013405737' },
+    { grupo: 'Costa y Eje Cafetero', label: 'Costa (Córdoba, Sucre y Atlántico)', asesora: 'Denise', numero: '573013405088' },
+    { grupo: 'Costa y Eje Cafetero', label: 'Eje Cafetero', asesora: 'Maria Luisa', numero: '573217337623' },
+    { grupo: 'Santanderes', label: 'Santander y Norte de Santander', asesora: 'Denise', numero: '573013405088' },
+    { grupo: 'Bogotá y Llanos', label: 'Centro Bogotá', asesora: 'Leydi', numero: '573013408038' },
+    { grupo: 'Bogotá y Llanos', label: 'Periferia Bogotá', asesora: 'Leydi', numero: '573245391366' },
+    { grupo: 'Bogotá y Llanos', label: 'Llanos Orientales (Villavicencio)', asesora: 'Leydi', numero: '573013404640' }
+  ]
 };
 
 // Cada ítem: { ref, qty, nota }. Los precios NO se guardan: se resuelven
@@ -2393,6 +2523,7 @@ function updateCartUI() {
   }).join('');
 
   // Total
+  document.getElementById('cartTotalLabel').textContent = priceMode === 'publico' ? 'Resumen' : 'Total';
   const totalEl = document.getElementById('cartTotal');
   const noteEl  = document.getElementById('cartTotalNote');
   if (priceMode === 'publico') {
@@ -2555,7 +2686,7 @@ function buildOrderMessage() {
   lines.push('');
   lines.push('*NUEVO PEDIDO — ' + CATALOG_NAME.toUpperCase() + '*');
   lines.push('Tipo de pedido: *PREVENTA*');
-  lines.push('Precios: *por confirmar*');
+  lines.push('Lista de precios: *' + modeLabel + '*');
   lines.push(SEP);
   lines.push('');
 
@@ -2644,6 +2775,23 @@ function buildOrderMessage() {
   window.addEventListener('load', apply);
 })();
 </script>
+
+<!-- PASSWORD MODAL -->
+<div class="pwd-overlay" id="pwdOverlay">
+  <div class="pwd-modal">
+    <h3 id="pwdTitle">Catálogo Detal</h3>
+    <p id="pwdDesc">Ingresa la contraseña para ver precios detal</p>
+    <div class="pwd-input-wrap">
+      <input type="password" id="pwdInput" maxlength="20"
+             placeholder="••••••" onkeydown="if(event.key==='Enter')checkPwd()">
+      <button class="pwd-show-btn" onclick="togglePwdVisibility()" title="Mostrar/ocultar">👁</button>
+    </div>
+    <div class="pwd-error-msg" id="pwdError"></div>
+    <button class="pwd-submit" onclick="checkPwd()">Acceder</button>
+    <br>
+    <button class="pwd-cancel" onclick="closePwd()">Cancelar</button>
+  </div>
+</div>
 
 </body>
 </html>
