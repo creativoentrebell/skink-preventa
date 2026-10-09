@@ -2090,7 +2090,7 @@
     "categoria": "Capilar",
     "descripcion": "Producto capilar (Tratamiento) ¡Una crema para el cabello que te ahorra tiempo por las mañanas! Esta fórmula suave y ligera te ayuda a completar el peinado que deseas. Ayuda a desenredar el cabello rizado y deja un aspecto natural. Formulada con aceites y extractos vegetales para hidratar y nutrir el cabello. Ingredientes claves: Extracto de anís, aceite de onagra, queratina, extracto de romero, lavanda, extracto de soja.",
     "imagen": "img/skink/ELI-09.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
