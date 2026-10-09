@@ -1090,7 +1090,7 @@
     "categoria": "Accesorios",
     "descripcion": "",
     "imagen": "img/skink/MEDICUBE113.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [],
     "ficha": "img/fichas/MEDICUBE113.png",
