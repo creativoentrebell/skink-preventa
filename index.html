@@ -39,6 +39,21 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
 .header-spacer { flex: 1; }
 .header-stats { font-size: 12px; color: var(--text-light); white-space: nowrap; }
 
+/* ── IDENTIDAD PREVENTA (solo en este catálogo) ── */
+body { background: #f1e8dc; }
+:root { --preventa-cafe: #4a3628; --preventa-cafe-2: #6b5040; }
+header { border-top: 6px solid var(--preventa-cafe); }
+.preventa-strip { background: var(--preventa-cafe); color: #fff; margin: 0 -24px; padding: 9px 16px; text-align: center; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; overflow: hidden; white-space: nowrap; }
+.preventa-strip .ps-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #fff; margin: 0 10px 1px; vertical-align: middle; animation: psPulse 1.4s ease-in-out infinite; }
+@keyframes psPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+.brand-subtitle.preventa-tag { background: var(--preventa-cafe); color: #fff; font-weight: 600; font-size: 13px; letter-spacing: 0.14em; padding: 6px 12px; border-radius: 6px; }
+.preventa-banner { display: block; width: 100%; max-width: 1400px; height: auto; margin: 0 auto 18px; border-radius: 16px; box-shadow: 0 6px 22px rgba(74,54,40,0.22); }
+@media (max-width: 600px) {
+  .preventa-banner { border-radius: 10px; margin-bottom: 14px; }
+  .preventa-strip { margin: 0 -14px; font-size: 11.5px; letter-spacing: 0.08em; padding: 7px 8px; }
+  .brand-subtitle.preventa-tag { display: none !important; }
+}
+
 /* ── FILTERS ── */
 .filters-bar { background: var(--white); border-bottom: 1px solid var(--beige-mid); padding: 12px 24px; position: sticky; top: var(--header-h, 68px); z-index: 99; }
 .filters-inner { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
@@ -878,11 +893,12 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
 
 <!-- HEADER -->
 <header>
+  <div class="preventa-strip"><span class="ps-dot"></span>Catálogo de preventa<span class="ps-dot"></span></div>
   <div class="header-inner">
     <div class="logo-area">
       <img src="img/LOGO_ENTREBELL_SKIN_M.png" alt="Entrebell Skin" class="header-logo"
            onerror="this.outerHTML='<span style=&quot;font-size:18px;font-weight:600;color:var(--taupe-xdark)&quot;>Entrebell Skin</span>'">
-      <span class="brand-subtitle">Catálogo · K-Beauty</span>
+      <span class="brand-subtitle preventa-tag">Preventa</span>
     </div>
     <div class="header-spacer"></div>
     <div class="header-stats" id="headerStats"></div>
@@ -944,6 +960,8 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
 
 <!-- MAIN -->
 <main class="main">
+  <img class="preventa-banner" src="img/banner-preventa.webp" width="2172" height="724"
+       alt="Catálogo de preventa — Todos los productos de este catálogo son de preventa. No es el catálogo general de Entrebell Skin.">
   <div id="loading"><div class="spinner"></div><p>Cargando catálogo…</p></div>
   <div id="catalogContent" style="display:none"></div>
 </main>
@@ -1006,7 +1024,7 @@ header { background: var(--white); border-bottom: 1px solid var(--beige-mid); pa
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 <aside class="cart-drawer" id="cartDrawer" aria-label="Tu pedido">
   <div class="cart-head">
-    <h3>Tu pedido</h3>
+    <h3>Tu pedido de preventa</h3>
     <button onclick="closeCart()" title="Cerrar">✕</button>
   </div>
   <div class="cart-items" id="cartItems"></div>
@@ -2403,7 +2421,7 @@ function updateStats() {
 
 // ── CARRITO DE PEDIDOS ────────────────────────────────────────
 const CART_KEY = 'entrebell_skin_preventa_pedido';
-const CATALOG_NAME = 'Entrebell Skin';
+const CATALOG_NAME = 'Entrebell Skin — Preventa';
 
 const WHATSAPP_DESTINOS = {
   sinprecios: [ { label: 'Elegir entre tus contactos', numero: null } ],
