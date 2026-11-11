@@ -233,7 +233,7 @@
     "categoria": "Hidratación",
     "descripcion": "",
     "imagen": "img/skink/ANUA33.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Anti-edad",
@@ -241,7 +241,7 @@
     ],
     "ficha": "img/fichas/ANUA33.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": true
   },
   {
@@ -341,7 +341,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel hecha de esencia solidificada, sin tela, enfocada en la regeneración y el antienvejecimiento, incluidas las líneas finas y la recuperación de la piel dañada. Se vuelve transparente a medida que la piel absorbe la esencia y se deja de 3 a 4 horas o toda la noche. Ingredientes claves: complejo de caviar (agua y extracto de caviar, extracto de hueva de salmón y PDRN), colágeno de bajo peso molecular y galactomyces.",
     "imagen": "img/skink/BIODANCE5.jpg",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -351,7 +351,7 @@
       "Protección Solar"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -485,7 +485,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de gel tipo gelatina que pasa de rosada a transparente a medida que la piel la absorbe. Ayuda con la elasticidad, la hidratación y la luminosidad, y calma la irritación. Se puede usar de noche o de día. Ingredientes claves: PDRN de salmón, colágeno hidrolizado, niacinamida, péptidos, adenosina, pantenol.",
     "imagen": "img/skink/MEDICUBE16.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -496,7 +496,7 @@
     "ficha": "img/fichas/MEDICUBE16.png",
     "video": "img/videos/Medicube16.mp4",
     "mas_vendido": true,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -612,7 +612,7 @@
     "categoria": "Tónico",
     "descripcion": "",
     "imagen": "img/skink/SKIN1004-52.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Hidratación Profunda",
@@ -620,7 +620,7 @@
       "Protección Solar"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -697,7 +697,7 @@
     "categoria": "Hidratación",
     "descripcion": "Crema calmante vegana ideal para hidratar y proteger la piel sensible. Formulada con ingredientes naturales como Centella Asiática Extract, esta crema ofrece un alivio efectivo para irritaciones y ayuda a restaurar la barrera cutánea. Ingredientes claves: Niacinamida, pantenol, ácido hialurónico, extracto de centella asiática. 345 Relief Cream (Crema de alivio 345)",
     "imagen": "img/skink/DR-ALTHEA21.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -708,7 +708,7 @@
     "ficha": "img/fichas/DR-ALTHEA21.png",
     "video": "img/videos/Dr-Althea21.mp4",
     "mas_vendido": true,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -920,7 +920,7 @@
     "categoria": "Hidratación",
     "descripcion": "Crema para cuello con aplicador gua sha integrado, pensada para mandíbula, cuello, clavícula y escote. Ayuda a mejorar la apariencia de líneas finas y líneas horizontales del cuello y a que la piel luzca más firme; textura ligera y no pegajosa para masajear hacia arriba unos cinco minutos al día. Ingredientes claves: Volufiline 5%, PDRN, colágeno, niacinamida, ácido hialurónico y retinol.",
     "imagen": "img/skink/MEDICUBE100.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad"
@@ -928,7 +928,7 @@
     "ficha": "img/fichas/MEDICUBE100.png",
     "video": "img/videos/MEDICUBE100.mp4",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": true
   },
   {
