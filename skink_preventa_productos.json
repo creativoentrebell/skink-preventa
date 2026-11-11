@@ -1392,5 +1392,48 @@
     "mas_vendido": false,
     "preventa": true,
     "destacado": false
+  },
+  {
+    "id": "MEDICUBE60",
+    "referencia": "MEDICUBE60",
+    "nombre": "Kojic Acid Turmeric Niacinamide Serum 30ml",
+    "marca": "MEDICUBE",
+    "precio": 105000,
+    "categoria": "Sérum",
+    "descripcion": "Sérum iluminador con microcápsulas que liberan escualano y ácido tióctico al masajearlo sobre la piel. Enfocado en manchas, hiperpigmentación, piel apagada y tono irregular; también calma la irritación, refina la textura y apoya la barrera de hidratación. Ingredientes claves: ácido kójico, cúrcuma, niacinamida y vitamina E.",
+    "imagen": "img/skink/MEDICUBE60.webp",
+    "agotado": false,
+    "nuevo": false,
+    "tipos_piel": [
+      "Hidratación Profunda",
+      "Manchas e Hiperpigmentación",
+      "Piel Grasa y Poros"
+    ],
+    "ficha": "img/fichas/MEDICUBE60.png",
+    "mas_vendido": false,
+    "preventa": true,
+    "destacado": true
+  },
+  {
+    "id": "MEDICUBE21",
+    "referencia": "MEDICUBE21",
+    "nombre": "PDRN Pink Collagen Capsule Cream 55g",
+    "marca": "MEDICUBE",
+    "precio": 115000,
+    "categoria": "Hidratación",
+    "descripcion": "Una crema enriquecida con cápsulas de colágeno rosa que mejora el tono desigual de la piel y aumenta la luminosidad para pieles apagadas y flácidas. Las cápsulas mantienen los efectos reafirmantes e hidratantes del PDRN hasta que se absorben en la piel, logrando un brillo máximo. Ingredientes claves: Extracto de colágeno, aceite de moringa, extracto de salmón, ceramida.",
+    "imagen": "img/skink/MEDICUBE21.webp",
+    "agotado": true,
+    "nuevo": false,
+    "tipos_piel": [
+      "Anti-edad",
+      "Brillo y Luminosidad",
+      "Hidratación Profunda"
+    ],
+    "ficha": "img/fichas/MEDICUBE21.png",
+    "video": "img/videos/MEDICUBE21.mp4",
+    "mas_vendido": true,
+    "preventa": false,
+    "destacado": true
   }
 ]
