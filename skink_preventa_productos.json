@@ -1115,26 +1115,6 @@
     "destacado": false
   },
   {
-    "id": "DR-ALTHEA31",
-    "referencia": "DR-ALTHEA31",
-    "nombre": "345 Relief Spot Powder",
-    "marca": "DR-ALTHEA",
-    "precio": "pendiente",
-    "categoria": "Sérum",
-    "descripcion": "",
-    "imagen": "img/skink/DR-ALTHEA31.webp",
-    "agotado": false,
-    "nuevo": true,
-    "tipos_piel": [
-      "Acné",
-      "Piel Sensible y Calmante"
-    ],
-    "ficha": "img/fichas/DR-ALTHEA31.png",
-    "mas_vendido": false,
-    "preventa": true,
-    "destacado": false
-  },
-  {
     "id": "DR-ALTHEA32",
     "referencia": "DR-ALTHEA32",
     "nombre": "Rapid Mild Acid Rescue Pore Pad",
