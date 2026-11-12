@@ -363,7 +363,7 @@
     "categoria": "Bruma",
     "descripcion": "",
     "imagen": "img/skink/BIODANCE8.jpg",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Hidratación Profunda",
@@ -371,7 +371,7 @@
     ],
     "ficha": "img/fichas/BIODANCE8.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -383,7 +383,7 @@
     "categoria": "Bruma",
     "descripcion": "",
     "imagen": "img/skink/BIODANCE7.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Hidratación Profunda",
@@ -391,7 +391,7 @@
     ],
     "ficha": "img/fichas/BIODANCE7.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -530,7 +530,7 @@
     "categoria": "Tónico",
     "descripcion": "Pads de gel sumergidos en una esencia de PDRN de ADN de salmón, de textura gelatinosa que se adhiere a la piel. Se pueden dejar unos cinco minutos sobre zonas específicas como mascarilla rápida y luego pasarlos por el rostro. Enfocados en resequedad, piel apagada, tono irregular y manchas. Ingredientes claves: PDRN de salmón, colágeno, niacinamida y madecasósido.",
     "imagen": "img/skink/MEDICUBE89.jpg",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -539,7 +539,7 @@
     "ficha": "img/fichas/MEDICUBE89.png",
     "video": "img/videos/Medicube89.mp4",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -980,7 +980,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de dos capas (gasa + gel tipo jalea) para piel seca, estresada o sensible, que hidrata en profundidad, fortalece la barrera y ayuda a suavizar líneas finas, dejando la piel rellena y luminosa. Se deja de 10 a 15 minutos y se masajea la esencia restante. Ingredientes claves: ácido hialurónico (complejo HyalDeca), PDRN de loto, pantenol y madecasósido.",
     "imagen": "img/skink/DR-ALTHEA30.jpg",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Hidratación Profunda",
@@ -988,7 +988,7 @@
     ],
     "ficha": "img/fichas/DR-ALTHEA30.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -1103,7 +1103,7 @@
     "categoria": "Tónico",
     "descripcion": "",
     "imagen": "img/skink/DR-ALTHEA33.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Acné",
@@ -1111,7 +1111,7 @@
     ],
     "ficha": "img/fichas/DR-ALTHEA33.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
