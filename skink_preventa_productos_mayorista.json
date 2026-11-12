@@ -233,7 +233,7 @@
     "categoria": "Hidratación",
     "descripcion": "",
     "imagen": "img/skink/ANUA33.webp",
-    "agotado": true,
+    "agotado": false,
     "nuevo": true,
     "tipos_piel": [
       "Anti-edad",
@@ -241,7 +241,7 @@
     ],
     "ficha": "img/fichas/ANUA33.png",
     "mas_vendido": false,
-    "preventa": false,
+    "preventa": true,
     "destacado": true
   },
   {
