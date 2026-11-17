@@ -1415,5 +1415,66 @@
     "mas_vendido": true,
     "preventa": false,
     "destacado": true
+  },
+  {
+    "id": "CENTELLIAN24-01",
+    "referencia": "CENTELLIAN24-01",
+    "nombre": "Madeca Cream Time Reverse 50ml",
+    "marca": "CENTELLIAN24",
+    "precio": 85000,
+    "categoria": "Hidratación",
+    "descripcion": "Es una crema antiedad de cuidado intensivo formulada con una alta concentración de activos derivados de Centella Asiática. Patentados en una estructura de 3 capas para una absorción profunda y rápida, mientras una fórmula rica en proteínas ayuda a mejorar elasticidad, firmeza e hidratación de la piel. Ingredientes claves: Pantenol, niacinamida, centella asiática, ácido madecásico, aceite de jojoba, glicerina.",
+    "imagen": "img/skink/CENTELLIAN24-01.webp",
+    "agotado": false,
+    "nuevo": false,
+    "tipos_piel": [
+      "Anti-edad",
+      "Hidratación Profunda",
+      "Manchas e Hiperpigmentación",
+      "Piel Sensible y Calmante"
+    ],
+    "mas_vendido": false,
+    "preventa": true,
+    "destacado": false
+  },
+  {
+    "id": "KAHI-01",
+    "referencia": "KAHI-01",
+    "nombre": "Wrinkle Bounce Multi Balm 9g",
+    "marca": "KAHI",
+    "precio": 110000,
+    "categoria": "Primera Limpieza",
+    "descripcion": "Bounce Multi Balm contiene ingredientes naturales de alta calidad que no dañan la piel. Con una combinación de aceites nutritivos y potentes antioxidantes, este bálsamo ayuda a que su piel esté suave, flexible y protegida de las agresiones externas. Ingredientes claves: Semilla de girasol, Manteca de Karité, aceite de manzana, arroz, cúrcuma, colágeno, ADN sódico.",
+    "imagen": "img/skink/KAHI-01.webp",
+    "agotado": false,
+    "nuevo": false,
+    "tipos_piel": [
+      "Anti-edad",
+      "Piel Sensible y Calmante"
+    ],
+    "ficha": "img/fichas/KAHI01.png",
+    "video": "img/videos/KAHI-01.mp4",
+    "mas_vendido": false,
+    "preventa": true,
+    "destacado": false
+  },
+  {
+    "id": "COSRX2",
+    "referencia": "COSRX2",
+    "nombre": "Advanced Snail 96 Mucin Power Essence 100ml",
+    "marca": "COSRX",
+    "precio": 71900,
+    "categoria": "Esencia",
+    "descripcion": "Esencia reparadora ultra concentrada con 96% de mucina de caracol, diseñada para hidratar, regenerar y mejorar visiblemente la textura de la piel. Su fórmula ligera y de rápida absorción ayuda a restaurar la vitalidad del rostro, calmar irritaciones y promover una piel más suave y luminosa.",
+    "imagen": "img/skink/COSRX2.webp",
+    "agotado": false,
+    "nuevo": false,
+    "tipos_piel": [
+      "Brillo y Luminosidad",
+      "Piel Sensible y Calmante"
+    ],
+    "mas_vendido": false,
+    "preventa": true,
+    "destacado": false
   }
 ]
