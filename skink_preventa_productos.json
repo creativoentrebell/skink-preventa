@@ -272,7 +272,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel hecha de esencia solidificada, sin tela, pensada para la deshidratación crónica y la barrera comprometida; ideal para piel seca o sensible. Se vuelve transparente a medida que la piel absorbe la esencia y se deja de 3 a 4 horas o toda la noche. Ingredientes claves: complejo Cera-nol (ceramidas, ácido hialurónico oligo y D-pantenol), agua glaciar y fermentado de galactomyces.",
     "imagen": "img/skink/BIODANCE1.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -283,7 +283,7 @@
     "ficha": "img/fichas/BIODANCE1.png",
     "video": "img/videos/Biodance1.mp4",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -295,7 +295,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel hecha de esencia solidificada, sin tela, que se adapta al rostro y se vuelve transparente a medida que la piel absorbe la esencia. Ayuda con poros dilatados, pérdida de elasticidad y textura áspera; apta para todo tipo de piel, incluida la sensible. Se deja de 3 a 4 horas o toda la noche. Ingredientes claves: colágeno de ultra bajo peso molecular, ácido hialurónico, filtrado fermentado de galactomyces y probióticos.",
     "imagen": "img/skink/BIODANCE2.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -307,7 +307,7 @@
     "ficha": "img/fichas/BIODANCE2.png",
     "video": "img/videos/BIODANCE2.mp4",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -319,7 +319,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel con niacinamida que mejora el tono, la textura y la luminosidad de la piel. Ingredientes claves: niacinamida, agua de piña, ácido hialurónico, extracto de pera, agua de rosas.",
     "imagen": "img/skink/BIODANCE3.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Brillo y Luminosidad",
@@ -329,7 +329,7 @@
     "ficha": "img/fichas/BIODANCE3.png",
     "video": "img/videos/Biodance3.mp4",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
