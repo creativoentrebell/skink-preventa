@@ -35,7 +35,7 @@
     "categoria": "Protección Solar",
     "descripcion": "Ultra ligero y cómodo, este protector solar con textura refrescante de suero hidrata tu piel y la protege de los rayos UVA y UVB con FPS50+ PA++++. Es indetectable sobre la piel y se absorbe fácilmente, así que no debes preocuparte por residuos blancos o grasosos. Ingredientes claves: Niacinamida, extracto de algodón, extracto de flor y corteza.",
     "imagen": "img/skink/TOCOBO55.jpg",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Manchas e Hiperpigmentación",
@@ -43,7 +43,7 @@
     ],
     "ficha": "img/fichas/TOCOBO55.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -253,14 +253,14 @@
     "categoria": "Protección Solar",
     "descripcion": "Esta barra solar orgánica defiende fácilmente los rayos UV mientras calma y fortalece la piel. La fórmula resistente al agua. Diseño curvo que se adhiere perfectamente a la cara para una mejor aplicación. Formulado con ingredientes naturales para hidratar y calmar tu piel para una tez suave. Ingredientes claves: Aceite vegetal, semilla de camelia, semilla de girasol.",
     "imagen": "img/skink/ABIB6.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Piel Sensible y Calmante",
       "Protección Solar"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -960,7 +960,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla en tela vegana para piel seca y sensible, empapada en una esencia tipo crema que nutre e hidrata intensamente y se absorbe sin dejar sensación pegajosa, dejando la piel suave y jugosa. Se deja de 10 a 15 minutos. Ingredientes claves: niacinamida, centella asiática, madecasósido, hialuronato, pantenol y ceramida NP.",
     "imagen": "img/skink/DR-ALTHEA29.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Piel Sensible y Calmante",
@@ -968,7 +968,7 @@
     ],
     "ficha": "img/fichas/DR-ALTHEA29.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -1123,7 +1123,7 @@
     "categoria": "Tónico",
     "descripcion": "",
     "imagen": "img/skink/DR-ALTHEA32.png",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Piel Grasa y Poros",
@@ -1131,7 +1131,7 @@
     ],
     "ficha": "img/fichas/DR-ALTHEA32.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -1162,14 +1162,14 @@
     "categoria": "Capilar",
     "descripcion": "",
     "imagen": "img/skink/TOCOBO69.jpg",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Capilar"
     ],
     "ficha": "img/fichas/TOCOBO69.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -1425,7 +1425,7 @@
     "categoria": "Hidratación",
     "descripcion": "Es una crema antiedad de cuidado intensivo formulada con una alta concentración de activos derivados de Centella Asiática. Patentados en una estructura de 3 capas para una absorción profunda y rápida, mientras una fórmula rica en proteínas ayuda a mejorar elasticidad, firmeza e hidratación de la piel. Ingredientes claves: Pantenol, niacinamida, centella asiática, ácido madecásico, aceite de jojoba, glicerina.",
     "imagen": "img/skink/CENTELLIAN24-01.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -1434,7 +1434,7 @@
       "Piel Sensible y Calmante"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -1467,14 +1467,14 @@
     "categoria": "Esencia",
     "descripcion": "Esencia reparadora ultra concentrada con 96% de mucina de caracol, diseñada para hidratar, regenerar y mejorar visiblemente la textura de la piel. Su fórmula ligera y de rápida absorción ayuda a restaurar la vitalidad del rostro, calmar irritaciones y promover una piel más suave y luminosa.",
     "imagen": "img/skink/COSRX2.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Brillo y Luminosidad",
       "Piel Sensible y Calmante"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   }
 ]
