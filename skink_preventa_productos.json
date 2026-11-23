@@ -423,7 +423,7 @@
     "categoria": "Parches",
     "descripcion": "",
     "imagen": "img/skink/BIODANCE9.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Contorno de Ojos",
@@ -431,7 +431,7 @@
     ],
     "ficha": "img/fichas/BIODANCE9.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
