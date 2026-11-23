@@ -106,7 +106,7 @@
   {
     "id": "ANUA4",
     "referencia": "ANUA4",
-    "nombre": "Hyaluronic Acid Hydrating Gentle Foaming Cleanser 150ml",
+    "nombre": "8 Hyaluronic Acid Hydrating Gentle Foaming Cleanser 150ml",
     "marca": "ANUA",
     "precio": 62000,
     "categoria": "Segunda Limpieza",
@@ -272,7 +272,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel hecha de esencia solidificada, sin tela, pensada para la deshidratación crónica y la barrera comprometida; ideal para piel seca o sensible. Se vuelve transparente a medida que la piel absorbe la esencia y se deja de 3 a 4 horas o toda la noche. Ingredientes claves: complejo Cera-nol (ceramidas, ácido hialurónico oligo y D-pantenol), agua glaciar y fermentado de galactomyces.",
     "imagen": "img/skink/BIODANCE1.webp",
-    "agotado": true,
+    "agotado": false,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -283,7 +283,7 @@
     "ficha": "img/fichas/BIODANCE1.png",
     "video": "img/videos/Biodance1.mp4",
     "mas_vendido": false,
-    "preventa": false,
+    "preventa": true,
     "destacado": false
   },
   {
@@ -295,7 +295,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel hecha de esencia solidificada, sin tela, que se adapta al rostro y se vuelve transparente a medida que la piel absorbe la esencia. Ayuda con poros dilatados, pérdida de elasticidad y textura áspera; apta para todo tipo de piel, incluida la sensible. Se deja de 3 a 4 horas o toda la noche. Ingredientes claves: colágeno de ultra bajo peso molecular, ácido hialurónico, filtrado fermentado de galactomyces y probióticos.",
     "imagen": "img/skink/BIODANCE2.webp",
-    "agotado": true,
+    "agotado": false,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -307,7 +307,7 @@
     "ficha": "img/fichas/BIODANCE2.png",
     "video": "img/videos/BIODANCE2.mp4",
     "mas_vendido": false,
-    "preventa": false,
+    "preventa": true,
     "destacado": false
   },
   {
@@ -319,7 +319,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel con niacinamida que mejora el tono, la textura y la luminosidad de la piel. Ingredientes claves: niacinamida, agua de piña, ácido hialurónico, extracto de pera, agua de rosas.",
     "imagen": "img/skink/BIODANCE3.webp",
-    "agotado": true,
+    "agotado": false,
     "nuevo": false,
     "tipos_piel": [
       "Brillo y Luminosidad",
@@ -329,7 +329,7 @@
     "ficha": "img/fichas/BIODANCE3.png",
     "video": "img/videos/Biodance3.mp4",
     "mas_vendido": false,
-    "preventa": false,
+    "preventa": true,
     "destacado": false
   },
   {
@@ -341,7 +341,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de hidrogel hecha de esencia solidificada, sin tela, enfocada en la regeneración y el antienvejecimiento, incluidas las líneas finas y la recuperación de la piel dañada. Se vuelve transparente a medida que la piel absorbe la esencia y se deja de 3 a 4 horas o toda la noche. Ingredientes claves: complejo de caviar (agua y extracto de caviar, extracto de hueva de salmón y PDRN), colágeno de bajo peso molecular y galactomyces.",
     "imagen": "img/skink/BIODANCE5.jpg",
-    "agotado": true,
+    "agotado": false,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -351,7 +351,7 @@
       "Protección Solar"
     ],
     "mas_vendido": false,
-    "preventa": false,
+    "preventa": true,
     "destacado": false
   },
   {
@@ -485,7 +485,7 @@
     "categoria": "Mascarillas",
     "descripcion": "Mascarilla de gel tipo gelatina que pasa de rosada a transparente a medida que la piel la absorbe. Ayuda con la elasticidad, la hidratación y la luminosidad, y calma la irritación. Se puede usar de noche o de día. Ingredientes claves: PDRN de salmón, colágeno hidrolizado, niacinamida, péptidos, adenosina, pantenol.",
     "imagen": "img/skink/MEDICUBE16.webp",
-    "agotado": true,
+    "agotado": false,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -496,7 +496,7 @@
     "ficha": "img/fichas/MEDICUBE16.png",
     "video": "img/videos/Medicube16.mp4",
     "mas_vendido": true,
-    "preventa": false,
+    "preventa": true,
     "destacado": false
   },
   {
@@ -571,7 +571,7 @@
     "categoria": "Sérum",
     "descripcion": "",
     "imagen": "img/skink/SKIN1004-47.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Brillo y Luminosidad",
@@ -579,7 +579,7 @@
       "Piel Sensible y Calmante"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -591,7 +591,7 @@
     "categoria": "Sérum",
     "descripcion": "",
     "imagen": "img/skink/SKIN1004-9.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Acné",
@@ -600,7 +600,7 @@
       "Piel Sensible y Calmante"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -632,7 +632,7 @@
     "categoria": "Tónico",
     "descripcion": "",
     "imagen": "img/skink/SKIN1004-48.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -641,7 +641,7 @@
       "Piel Sensible y Calmante"
     ],
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -791,7 +791,7 @@
   {
     "id": "DR-MELAXIN03",
     "referencia": "DR-MELAXIN03",
-    "nombre": "Peel Shot Exfoliating White Ampoule 80ml",
+    "nombre": "Peel Shot Exfoliating White Rice Ampoule 80ml",
     "marca": "DR. MELAXIN",
     "precio": 120000,
     "categoria": "Exfoliante",
@@ -920,7 +920,7 @@
     "categoria": "Hidratación",
     "descripcion": "Crema para cuello con aplicador gua sha integrado, pensada para mandíbula, cuello, clavícula y escote. Ayuda a mejorar la apariencia de líneas finas y líneas horizontales del cuello y a que la piel luzca más firme; textura ligera y no pegajosa para masajear hacia arriba unos cinco minutos al día. Ingredientes claves: Volufiline 5%, PDRN, colágeno, niacinamida, ácido hialurónico y retinol.",
     "imagen": "img/skink/MEDICUBE100.webp",
-    "agotado": true,
+    "agotado": false,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad"
@@ -928,7 +928,7 @@
     "ficha": "img/fichas/MEDICUBE100.png",
     "video": "img/videos/MEDICUBE100.mp4",
     "mas_vendido": false,
-    "preventa": false,
+    "preventa": true,
     "destacado": true
   },
   {
@@ -940,7 +940,7 @@
     "categoria": "Sérum",
     "descripcion": "Sérum reafirmante para rostro y cuello que ayuda a mejorar la apariencia de arrugas, la pérdida de firmeza, la textura áspera y el tono apagado. Fórmula ligera para uso mañana y noche, no comedogénica y sin colorantes artificiales; apta para todo tipo de piel. Ingredientes claves: NAD+, péptido EGF y colágeno.",
     "imagen": "img/skink/MEDICUBE107.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Anti-edad"
@@ -948,7 +948,7 @@
     "ficha": "img/fichas/MEDICUBE107.png",
     "video": "img/videos/MEDICUBE107.mp4",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -1342,7 +1342,7 @@
     "categoria": "Protección Solar",
     "descripcion": "",
     "imagen": "img/skink/Deark-01.webp",
-    "agotado": false,
+    "agotado": true,
     "nuevo": true,
     "tipos_piel": [
       "Protección Solar",
@@ -1350,7 +1350,7 @@
     ],
     "ficha": "img/fichas/Deark-01.png",
     "mas_vendido": false,
-    "preventa": true,
+    "preventa": false,
     "destacado": false
   },
   {
@@ -1425,7 +1425,7 @@
     "categoria": "Hidratación",
     "descripcion": "Es una crema antiedad de cuidado intensivo formulada con una alta concentración de activos derivados de Centella Asiática. Patentados en una estructura de 3 capas para una absorción profunda y rápida, mientras una fórmula rica en proteínas ayuda a mejorar elasticidad, firmeza e hidratación de la piel. Ingredientes claves: Pantenol, niacinamida, centella asiática, ácido madecásico, aceite de jojoba, glicerina.",
     "imagen": "img/skink/CENTELLIAN24-01.webp",
-    "agotado": true,
+    "agotado": false,
     "nuevo": false,
     "tipos_piel": [
       "Anti-edad",
@@ -1434,7 +1434,7 @@
       "Piel Sensible y Calmante"
     ],
     "mas_vendido": false,
-    "preventa": false,
+    "preventa": true,
     "destacado": false
   },
   {
