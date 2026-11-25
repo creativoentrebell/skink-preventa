@@ -85,25 +85,6 @@
     "destacado": false
   },
   {
-    "id": "MIXSOON1",
-    "referencia": "MIXSOON1",
-    "nombre": "Bean Cleansing Oil 195ml",
-    "marca": "MIXSOON",
-    "precio": 85000,
-    "categoria": "Primera Limpieza",
-    "descripcion": "Aceite limpiador ligero que retira maquillaje, protector solar e impurezas sin dejar película grasosa ni resecar. Apto para todo tipo de piel, apoya la barrera y aporta antioxidantes de sus extractos fermentados. Ingredientes claves: soya, granada, cebada y pera fermentadas, y aceites de soya, jojoba y girasol.",
-    "imagen": "img/skink/MIXSOON1.webp",
-    "agotado": false,
-    "nuevo": false,
-    "tipos_piel": [
-      "Piel Grasa y Poros"
-    ],
-    "ficha": "img/fichas/MIXSOON1.jpg",
-    "mas_vendido": false,
-    "preventa": true,
-    "destacado": false
-  },
-  {
     "id": "ANUA4",
     "referencia": "ANUA4",
     "nombre": "8 Hyaluronic Acid Hydrating Gentle Foaming Cleanser 150ml",
