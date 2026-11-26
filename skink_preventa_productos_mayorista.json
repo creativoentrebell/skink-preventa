@@ -592,27 +592,6 @@
     "destacado": false
   },
   {
-    "id": "DR-MELAXIN03",
-    "referencia": "DR-MELAXIN03",
-    "nombre": "Peel Shot Exfoliating White Rice Ampoule 80ml",
-    "marca": "DR. MELAXIN",
-    "precio": 120000,
-    "categoria": "Exfoliante",
-    "descripcion": "Ampolla exfoliante de enjuague que exfolia e hidrata en un paso: retira células muertas, puntos negros e impurezas, refina los poros e ilumina. Se masajea sobre el rostro, se deja actuar y se enjuaga. Ingredientes claves: agua de salvado de arroz 64%, complejo Pentarice, ácidos AHA, BHA y PHA, niacinamida y extracto de arroz blanco.",
-    "imagen": "img/skink/DR-MELAXIN03.jpg",
-    "agotado": false,
-    "nuevo": false,
-    "tipos_piel": [
-      "Manchas e Hiperpigmentación",
-      "Brillo y Luminosidad"
-    ],
-    "ficha": "img/fichas/DR-MELAXIN03.png",
-    "video": "img/videos/Dr-Melaxin03.mp4",
-    "mas_vendido": false,
-    "preventa": true,
-    "destacado": false
-  },
-  {
     "id": "DR-MELAXIN04",
     "referencia": "DR-MELAXIN04",
     "nombre": "Peel Shot Exfoliating Black Rice Ampoule 80ml",
